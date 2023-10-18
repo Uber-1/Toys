@@ -31,7 +31,6 @@
 @move VivaldiPortable\Vivaldi-bin-win32\update_notifier.exe VivaldiPortable\Vivaldi-bin-win32\update_notifier.exe.~disabled
 @move VivaldiPortable\Vivaldi-bin-win64\update_notifier.exe VivaldiPortable\Vivaldi-bin-win64\update_notifier.exe.~disabled
 @del /f /q "Vivaldi.%VIVER%*.exe" "vivaldi*.7z" "7zr.exe"
-
 @CURL -RLO# "https://github.com/czyt/vivaldi_plus/releases/latest/download/windows_x86.zip" &&@tar -xf windows_x86.zip &&@move version.dll "VivaldiPortable\Vivaldi-bin-win32\version.dll"
 @CURL -RLO# "https://github.com/czyt/vivaldi_plus/releases/latest/download/windows_x64.zip" &&@tar -xf windows_x64.zip &&@move version.dll "VivaldiPortable\Vivaldi-bin-win64\version.dll"
 @del /f /q "windows_x64.zip" "windows_x86.zip"
