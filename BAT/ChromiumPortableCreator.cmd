@@ -1,5 +1,5 @@
 @echo off
-@title Chromium downloader + uber1configer ^| ver.3.0 [18.10.2023]
+@title Chromium downloader + uber1configer ^| ver.1.0 [18.10.2023]
 @cd /d "%~dp0"
 @md Chromium
 @cd Chromium
