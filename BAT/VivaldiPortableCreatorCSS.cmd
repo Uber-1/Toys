@@ -1,5 +1,5 @@
 @echo off
-@title Vivaldi downloader + uber1configer ^| ver.4.0 [18.10.2023]
+@title Vivaldi downloader + uber1configer ^| ver.1.0 [18.10.2023]
 @cd /d "%~dp0"
 @echo.
 @echo Release channel:
