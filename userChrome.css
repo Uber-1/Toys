@@ -1,0 +1,66 @@
+/* Left menu */
+#PanelUI-button { -moz-box-ordinal-group:0 !important ; order:-1 !important ; margin-inline-start:0px !important ; margin-inline-end:0px !important ; border-inline-start:none !important ; border-inline-end:0px solid !important ; }
+.cui-widget-panel, #appMenu-popup { margin-left:1em !important; }
+
+/* Tab's fonts */
+#urlbar { font-family:Tahoma !important ; font-size:8pt !important ; }
+#tabbrowser-tabs .tab-text{ font-family:Tahoma !important ; font-size:8pt !important ; font-weight:none !important ; }
+
+/* ======================== */
+/* keyfox-main\userChrome.css */
+
+/*Basic Settings*/
+:root { --navbarWidth:42vw ; --animationSpeed:0.15s ; } /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window. */
+#TabsToolbar { margin-left:var(--navbarWidth) !important ; }
+#nav-bar { margin-right:calc(100vw - var(--navbarWidth)) !important ; }
+#urlbar-container { min-width:0px !important ; }
+#urlbar-container { width:calc(80px + 2 * var(--toolbarbutton-inner-padding)) !important; }
+:root[uidensity="compact"] #nav-bar { margin-top:-31px !important ; height:31px !important ; }
+:root:not([uidensity="compact"]):not([uidensity="touch"]) #nav-bar { margin-top:-44px !important ; height:44px !important ; }
+:root[uidensity="touch"] #nav-bar { margin-top:-49px !important ; height:49px !important ; }
+
+/* Simplifying interface */
+#nav-bar { background:none !important ; box-shadow:none !important ;}
+#navigator-toolbox { border:none !important ;}
+.titlebar-spacer { display:none !important ;}
+#urlbar-background { border:none !important ;}
+/* #urlbar:not(:hover):not([breakout][breakout-extend]) > #urlbar-background { box-shadow:none !important ; background:none !important } */
+
+/* Element Hiding stuff */
+.urlbar-icon, #userContext-indicator, #userContext-label { fill:transparent !important ; background:transparent !important ; color:transparent !important ; }
+#urlbar:hover .urlbar-icon, #urlbar:active .urlbar-icon, #urlbar[focused] .urlbar-icon { fill:var(--toolbar-color) !important ;}
+/* ======================== */
+
+/* Tab's corners */
+@-moz-document url("chrome://browser/content/browser.xhtml") { :root {
+ --tab-block-margin:0px !important ;
+ --tab-border-radius:0px !important ;
+ --toolbarbutton-outer-padding:1px !important ;
+ --toolbarbutton-inner-padding:4px !important ;
+ --toolbar-start-end-padding:1px !important ;
+ --bookmark-block-padding:1px !important ;
+ --urlbar-min-height:24px !important ;
+ --urlbar-icon-padding:3px !important ;
+} }
+
+/* Overlink */
+#statuspanel[type="overLink"] { opacity:90% !important ; }
+#statuspanel-label { color:black !important; }
+@media (-moz-windows-default-theme)             {  #statuspanel-label { color:black !important; }}
+@media (-moz-content-prefers-color-scheme:dark) {  #statuspanel-label { color:white !important; }}
+
+/* #tabbrowser-tabpanels { background-color:menu !important; } */
+#tabbrowser-tabpanels { background-color: white !important; }
+
+/* ======================== */
+/*  Alltabs button  */
+#TabsToolbar-customization-target {counter-reset: tabCount}.tabbrowser-tab {counter-increment: tabCount}
+#alltabs-button>.toolbarbutton-badge-stack>.toolbarbutton-icon {list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath transform='translate(49,-60)' d='m-29 78.888-7.0703-7.0703 0.70703-0.70703 6.3633 6.3633 6.3633-6.3633 0.70703 0.70703-6.3633 6.3633z' fill='currentColor' style='paint-order:stroke fill markers'/%3E%3C/svg%3E"); overflow: hidden!important; padding: 0!important; border: 0!important; width: 40px!important; height: calc(100% + 1px)!important; margin: 0 -2px 0 0!important; transform: translate(20%,15%); padding: 0 3px}
+#alltabs-button>.toolbarbutton-badge-stack {position: relative!important; border-radius: 0!important; padding: 0!important; border: 0!important; height: calc(100% + 1px)!important; width: 56px!important; margin: 0-2px 0 0!important}
+#alltabs-button>.toolbarbutton-badge-stack::before {content: counter(tabCount); filter:contrast(500%)grayscale(100%); color: currentColor !important; position: absolute; bottom: 25%; left: 50%; transform: translate(-50%,-30%); padding: 0 3px}
+/* ======================== */
+
+/* 117 */
+menupopup, .menupopup-arrowscrollbox { border-radius:0px !important; }
+menupopup > menuitem, menupopup > menu { padding-block:2px !important; }  /* Set spacing here 0-4px */
+:root { --arrowpanel-menuitem-padding: 0px 4px !important; } /* Options menu spacing */

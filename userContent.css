@@ -1,0 +1,2 @@
+@-moz-document domain("youtube.com") {:root {scrollbar-width: none !important; /* thin/auto/none */} }
+@-moz-document url("about:privatebrowsing") { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
