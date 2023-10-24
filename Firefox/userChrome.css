@@ -64,3 +64,6 @@
 menupopup, .menupopup-arrowscrollbox { border-radius:0px !important; }
 menupopup > menuitem, menupopup > menu { padding-block:2px !important; }  /* Set spacing here 0-4px */
 :root { --arrowpanel-menuitem-padding: 0px 4px !important; } /* Options menu spacing */
+
+/* 119 */
+#private-browsing-indicator-with-label > label {display: none;}
