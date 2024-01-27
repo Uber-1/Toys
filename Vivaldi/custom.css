@@ -1,38 +1,21 @@
 #browser:not(.tabs-top) .vivaldi { height:30px; padding:0; }
-#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) { height:unset; }
-#header { height:unset; }
 #header, #main { position:unset; }
-#main { position:unset; }
-#main > div.mainbar > div > div.toolbar-extensions { position:absolute !important; transform:translate(-100%, 0); background-color:var(--colorAccentBg) !important; transition:background-color 0.7s ease-out; left:calc(100vw - 172px) !important; height:30px !important; right:unset !important; top:0px; border-radius:var(--radiusHalf)!important; }
-#tabs-container .resize { min-height:30px; margin-top:0px; }
+#main > div.mainbar > div > div.toolbar-extensions { position:absolute !important; transform:translate(-100%, 0); background-color:var(--colorAccentBg) !important; transition:background-color 0.7s ease-out; left:calc(100vw - 173px) !important; height:30px !important; right:unset !important; top:0px; border-radius:var(--radiusHalf)!important; }
 #tabs-container:not(.none).top { padding-left:calc(30vw + 184px) !important; padding-right:170px !important; padding-top:0px !important; margin-top:0px; min-height:30px; transition:0.3s; }
-.color-behind-tabs-on#browser.tabs-top #header { transition:0.7s ease-out; }
-.tab-group-indicator { top:0 !important; }
 .tab-position .tab { display:flex; flex:1 1 100%; flex-flow:column; overflow:hidden; font-size:11px; -webkit-user-select:none; -webkit-user-drag:element; }
-.tabs-right#browser.win.win10 .tabs-bottom#browser.win.win10 .tabs-left#browser.win.win10, #browser.win.win10 #header #titlebar .window-buttongroup button { height:30px; }
-.tabs-at-edge.fullscreen#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi), .tabs-at-edge.maximized#browser.win.win10.tabs-top #header #titlebar .window-buttongroup button:not(.vivaldi) { height:30px; }
-.maximized#browser:has(#tabs-subcontainer.top) .toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) { transform:translateY(-60px); }
 .toolbar-mainbar .toolbar-extensions > .button-toolbar > button { height:30px; }
 .toolbar-mainbar .toolbar-extensions { background-color:transparent; }
 .toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after { display:none !important; }
 .toolbar-mainbar > .button-toolbar > button { height:30px; }
-.toolbar-mainbar { background:linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), var(--colorAccentBgDarker); transition:background-color 0.7s ease-out; }
-.toolbar-mainbar { background:transparent; border-radius:var(--radiusHalf); }
-.toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) { position:absolute; top:unset;  left:35px !important; height:30px; background:var(--colorAccentBg) !important; border:none !important; transform:translateY(-30px); }
-.toolbar-tabbar.sync-and-trash-container { top:0px !important; }
-.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large { width:100vw; left:0px; }
-.maximized#browser:has(.toolbar-mailbar.toolbar-large) #tabs-container:not(.none).top { padding-left:35px !important; }
-.maximized#browser:has(.toolbar-mailbar.toolbar-large) .mainbar { top:unset; position:relative; }
+.toolbar-mainbar:not(.toolbar-wrap):not( .toolbar-editor section.dialog-preview .toolbar):not(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large) { position:absolute; top:unset; left:35px !important; height:30px; background:var(--colorAccentBg) !important; border:none !important; transform:translateY(-30px); }
 .UrlBar-AddressField { width:31vw !important; top:0px !important; }
 .UrlBar-PrivateWindowIndicator { font-size:0; padding:0 6px 0 6px; }
-.maximized#browser:has(.UrlBar-PrivateWindowIndicator) #tabs-container:not(.none).top { padding-left:calc(30vw + 184px) !important; }
-.vivaldi { margin-top:-6px !important; }
 .vivaldi { margin-top:0px !important; }
-.win #titlebar #pagetitle > span, .linux #titlebar #pagetitle > span { text-align:left; margin-left:38%; width:42vw; }
-.win.normal #titlebar { top:0px; }
 .win.normal .toolbar-mainbar { left:unset; right:unset; border-radius:var(--radiusHalf)!important; }
-.win.normal .UrlBar-AddressField { top:0px; }
-.win10.normal #tabs-tabbar-container.top { padding-top:6px; }
-.maximized .win10.normal #tabs-tabbar-container.top { padding-top:0px !IMPORTANT; }
-.window-buttongroup { height:unset !important; width:unset !important; top:0px !important; }
-#browser, #browser + div, #browser + div + div, #browser button, #browser input, #browser select, #browser textarea { font-family:Arial,Tahoma,'MS Sans Serif','Segoe UI',system-ui,sans-serif !important; font-weight:400; font-size:11px; line-height:1.0; }
+.normal #tabs-tabbar-container.top { padding-top:0px !important; }
+.normal .window-buttongroup { height:30px !important; width:unset !important; top:0px !important; align-items:center !important; }
+.maximized .window-buttongroup { height:unset !important; width:unset !important; top:0px !important; }
+#browser, #browser + div, #browser + div + div, #browser button, #browser input, #browser select, #browser textarea { font-family:Arial,Tahoma,'MS Sans Serif',system-ui,sans-serif !important; font-weight:400; font-size:11px; line-height:1.0; text-shadow:transparent 0px 0px 0px, rgba(0,0,0,0.35) 0px 0px 0px !important; }
+.tabbar-workspace-button .button-title { font-size:0px; margin:0 0px; }
+.normal:not(.horizontal-menu) #tabs-tabbar-container.top { padding:0px 0 0 0 !important; }
+.tabs-top.address-top#browser.win:not(.fullscreen, .disable-titlebar) #header { min-height: calc(30px / var(--uiZoomLevel) ); }
