@@ -1,5 +1,5 @@
 @echo off
-@title Vivaldi downloader + configer mini ^| ver.3.1 [09.10.2023]
+@title Vivaldi downloader + configer mini ^| ver.4.0 [29.02.2024]
 @cd /d "%~dp0"
 @echo.
 @echo Release channel:
@@ -12,7 +12,7 @@
 @if not exist "7zr.exe" (@color 0C &@echo DOWNLOAD ERROR: "7zr.exe" &@pause > nul &@exit)
 
 @if /i "%ViChan%"=="2" (@GOTO DLSNA)
-@for /f eol^=-^ tokens^=1-26^ delims^=^'^?^" %%a in ('@curl.exe -lsL "https://vivaldi.com/download" ^| 2^>nul FINDSTR /IRC:"vivaldi-versions.js"') do (@set VIVJS=%%e)
+@for /f eol^=-^ tokens^=1-26^ delims^=^?^" %%a in ('@curl.exe -lsL "https://vivaldi.com/download" ^| 2^>nul FINDSTR /IRC:"vivaldi-versions.js"') do (@set VIVJS=%%c)
 @for /f eol^=-^ tokens^=1-26^ delims^=^" %%a in ('@curl.exe -lsL "https://vivaldi.com/wp-content/vivaldi-versions.js?%VIVJS%" ^| 2^>nul FINDSTR /IRC:"version"') do (@set VIVER=%%d)
 @echo.Version: "%VIVER%"
 @curl.exe -RLO# "https://downloads.vivaldi.com/stable/Vivaldi.%VIVER%.exe"
@@ -35,6 +35,8 @@
 @CURL -RLO# "https://github.com/czyt/vivaldi_plus/releases/latest/download/windows_x86.zip" &&@tar -xf windows_x86.zip &&@move version.dll "VivaldiPortable\Vivaldi-bin-win32\version.dll"
 @CURL -RLO# "https://github.com/czyt/vivaldi_plus/releases/latest/download/windows_x64.zip" &&@tar -xf windows_x64.zip &&@move version.dll "VivaldiPortable\Vivaldi-bin-win64\version.dll"
 @del /f /q "windows_x64.zip" "windows_x86.zip"
+(@echo [dir_setting]&@echo data=%%app%%/../Data&@echo cache=nul&@echo [features]&@echo right_click_close_tab=0)>"VivaldiPortable\Vivaldi-bin-win32\config.ini"
+(@echo [dir_setting]&@echo data=%%app%%/../Data&@echo cache=nul&@echo [features]&@echo right_click_close_tab=0)>"VivaldiPortable\Vivaldi-bin-win64\config.ini"
 
 @type NUL>"VivaldiPortable\Vivaldi-bin-win32\stp.viv"
 @type NUL>"VivaldiPortable\Vivaldi-bin-win64\stp.viv"
