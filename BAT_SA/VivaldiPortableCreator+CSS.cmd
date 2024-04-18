@@ -1,5 +1,5 @@
 @echo off
-@title Vivaldi downloader + configer ^| ver.4.0.2 [18.04.2024]
+@title Vivaldi downloader + configer ^| ver.4.1 [19.04.2024]
 @cd /d "%~dp0"
 @echo.
 @echo Release channel:
@@ -56,20 +56,20 @@
 @echo.
 @echo /* поднимаем главную панель вверх */
 @echo #header, #main { position:unset; }
-@echo .toolbar-mainbar:not^(.toolbar-wrap^):not^(.toolbar-editor section.dialog-preview .toolbar^):not^(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large^) { position:absolute; top:unset; left:35px !important; height:30px; background:var^(--colorAccentBg^) !important; border:none !important; transform:translateY^(-30px^); }
+@echo .toolbar-mainbar:not^(.toolbar-wrap^):not^(.toolbar-editor section.dialog-preview .toolbar^):not^(.toolbar.toolbar-droptarget.toolbar-mainbar.toolbar-mailbar.toolbar-large^) { position:absolute; top:unset; left:35px !important; height:30px; /* background:var^(--colorAccentBg^) !important; */ border:none !important; transform:translateY^(-30px^); }
 @echo.
 @echo /* расположение иконок расширений, минимально 173 = 138 ^(упр.окном^) + 35 ^(каждое расш.^) */
-@echo #main ^> div.mainbar ^> div ^> div.toolbar-extensions { position:absolute !important; transform:translate^(-100%%, 0^); background-color:var^(--colorAccentBg^) !important; transition:background-color 0.7s ease-out; left:calc^(100vw - 173px^) !important; height:30px !important; right:unset !important; top:0px; border-radius:var^(--radiusHalf^)!important; }
+@echo #main ^> div.mainbar ^> div ^> div.toolbar-extensions { position:absolute !important; transform:translate^(-100%%, 0^); /* background-color:var^(--colorAccentBg^) !important; */ transition:background-color 0.7s ease-out; left:calc^(100vw - 173px^) !important; height:30px !important; right:unset !important; top:0px; border-radius:var^(--radiusHalf^)!important; }
 @echo .toolbar-mainbar .toolbar-extensions { background-color:transparent; }
 @echo .toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after { display:none !important; }
 @echo.
 @echo /* расположение вкладок, их свойства */
-@echo #tabs-container:not^(.none^).top { padding-left:calc^(30vw + 173px + 35px^) !important; padding-right:173px !important; padding-top:0px !important; margin-top:0px; min-height:30px; transition:0.3s; }
+@echo #tabs-container:not^(.none^).top { padding-left:calc^(31vw + 173px + 35px^) !important; padding-right:173px !important; padding-top:0px !important; margin-top:0px; min-height:30px; transition:0.3s; }
 @echo .tab-position .tab { display:flex; flex:1 1 100%%; flex-flow:column; overflow:hidden; font-size:11px; -webkit-user-select:none; -webkit-user-drag:element; }
 @echo.
 @echo /* расположение основной панели с адресной строкой */
 @echo .win.normal .toolbar-mainbar { left:unset; right:unset; border-radius:var^(--radiusHalf^)!important; }
-@echo .UrlBar-AddressField { width:30vw !important; top:0px !important; }
+@echo .UrlBar-AddressField { width:31vw !important; top:0px !important; }
 @echo.
 @echo /* убрать лишние элеенты */
 @echo .UrlBar-PrivateWindowIndicator { font-size:0; padding:0 6px 0 6px; }
@@ -80,7 +80,7 @@
 @echo .maximized .window-buttongroup { height:unset !important; width:unset !important; top:0px !important; }
 @echo.
 @echo /* исправление шрифтов в интерфейсе браузера */
-@echo #browser, #browser + div, #browser + div + div, #browser button, #browser input, #browser select, #browser textarea, .info { font-family:Arial,Tahoma,'MS Sans Serif',system-ui,sans-serif !important; font-weight:400; font-size:11px; line-height:1.0; text-shadow:transparent 0px 0px 0px, rgba^(0,0,0,0.35^) 0px 0px 0px !important; }
+@echo #browser, #browser + div, #browser + div + div, #browser button, #browser input, #browser select, #browser textarea, .info { font-family:Arial,Tahoma,'MS Sans Serif',system-ui,sans-serif !important; font-weight:400; font-size:11px; line-height:1.0; text-shadow:transparent 0px 0px 0px, rgba^(0,0,0,0.25^) 0px 0px 0px !important; }
 @echo.
 @echo /* фикс позиции таб бара по высоте */
 @echo .normal #tabs-tabbar-container.top { padding-top:0px !important; }
@@ -89,6 +89,9 @@
 @echo /* фикс позиции элементов в оконном режиме */
 @echo .vivaldi { margin-top:0px !important; }
 @echo .tabs-top.address-top#browser.win:not^(.fullscreen, .disable-titlebar^) #header { min-height: calc^(30px / var^(--uiZoomLevel^) ^); }
+@echo.
+@echo /* фикс лишнего пикселя высоты внизу панели */
+@echo .address-top .mainbar { border-bottom-width:0px; } 
 )>"VivaldiPortable\Vivaldi-bin-win32\%VIVER%\CSS\custom.css"
 @copy "VivaldiPortable\Vivaldi-bin-win32\%VIVER%\CSS\custom.css" "VivaldiPortable\Vivaldi-bin-win64\%VIVER%\CSS\custom.css"
 
