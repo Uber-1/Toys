@@ -1,5 +1,5 @@
 @echo off
-@title Vivaldi downloader + uber1configer ^| ver.1.0 [18.10.2023]
+@title Vivaldi downloader + uber1configer ^| ver.1.0.1 [18.04.2024]
 @cd /d "%~dp0"
 @echo.
 @echo Release channel:
@@ -18,7 +18,7 @@
 @GOTO DLFIN
 :DLSNA
 @set ViChan=snapshot
-@for /f eol^=-^ tokens^=1-26^ delims^=./^<^>^" %%a in ('@curl.exe -lsL "https://vivaldi.com/feed/" ^| 2^>nul FINDSTR /IRC:"Vivaldi.*.exe"') do (@if NOT DEFINED VIVER (@set VIVER=%%i.%%j.%%k.%%l))
+@for /f "eol=- tokens=1-26 delims=.:" %%a in ('@curl.exe -lsL "https://vivaldi.com/feed/" ^| 2^>nul FINDSTR /IRC:"Vivaldi.*.exe"') do (@if NOT DEFINED VIVER (@set VIVER=%%e.%%f.%%g.%%h))
 :DLFIN
 @echo.Version: "%VIVER%" %ViChan%
 @curl.exe -RLO# "https://downloads.vivaldi.com/%ViChan%/Vivaldi.%VIVER%.exe"
