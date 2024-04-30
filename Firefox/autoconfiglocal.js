@@ -471,6 +471,10 @@ defaultPref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showSpo
 defaultPref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 defaultPref("services.sync.tabs.lastSync", "0");
 defaultPref("services.sync.tabs.lastSyncLocal", "0");
+defaultPref("signon.autofillForms", false);
+defaultPref("signon.firefoxRelay.feature", "disabled");
+defaultPref("signon.generation.enabled", false);
+defaultPref("signon.management.page.breach-alerts.enabled", false);
 defaultPref("signon.rememberSignons", false);
 defaultPref("social.directories", "");
 defaultPref("social.remote-install.enabled", false);
