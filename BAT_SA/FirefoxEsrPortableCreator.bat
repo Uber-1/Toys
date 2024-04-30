@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.4.5.1 [10.11.2023]
+@title Firefox Portable Creator - ver.4.6 [30.04.2024]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest-esr/README.txt
@@ -490,6 +490,10 @@
 @echo defaultPref^("services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites", false^);
 @echo defaultPref^("services.sync.tabs.lastSync", "0"^);
 @echo defaultPref^("services.sync.tabs.lastSyncLocal", "0"^);
+@echo defaultPref^("signon.autofillForms", false^);
+@echo defaultPref^("signon.firefoxRelay.feature", "disabled"^);
+@echo defaultPref^("signon.generation.enabled", false^);
+@echo defaultPref^("signon.management.page.breach-alerts.enabled", false^);
 @echo defaultPref^("signon.rememberSignons", false^);
 @echo defaultPref^("social.directories", ""^);
 @echo defaultPref^("social.remote-install.enabled", false^);
@@ -1113,6 +1117,10 @@
 @echo user_pref^("services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites", false^);
 @echo user_pref^("services.sync.tabs.lastSync", "0"^);
 @echo user_pref^("services.sync.tabs.lastSyncLocal", "0"^);
+@echo user_pref^("signon.autofillForms", false^);
+@echo user_pref^("signon.firefoxRelay.feature", "disabled"^);
+@echo user_pref^("signon.generation.enabled", false^);
+@echo user_pref^("signon.management.page.breach-alerts.enabled", false^);
 @echo user_pref^("signon.rememberSignons", false^);
 @echo user_pref^("social.directories", ""^);
 @echo user_pref^("social.remote-install.enabled", false^);
@@ -1180,3 +1188,7 @@
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/" -o "FirefoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi"
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/" -o "FirefoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi"
 )
+
+@echo.
+@echo Done!
+@pause
