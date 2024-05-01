@@ -60,3 +60,13 @@ Just save and run any script you wish.
 - [REG_opera_autoupdate_disabled.bat](/BAT_SA/REG_opera_autoupdate_disabled.bat) - disable Opera updates for current user.
 - [Clear-HKCU-Chrome.reg](/BAT_SA/Clear-HKCU-Chrome.reg) - remove garbage of Chrome-based browsers from registry (current user).
 
+
+
+### Other browser toys
+- Ready-to-use files for Firefox profile: [userChrome.css](/Firefox/userChrome.css), [userContent.css](/Firefox/userContent.css), [autoconfig.js](/Firefox/autoconfig.js), [autoconfiglocal.js](/Firefox/autoconfiglocal.js), [prefs.js](/Firefox/prefs.js), [policies.json](/Firefox/policies.json).
+- Ready-to-use files for Chrome user data: [Local State](/Chrome/Local State), [Local State (Ungoogled)](/Chrome/Local State Ungoogled), [Preferences](/Chrome/Preferences), [master_preferences](/Chrome/master_preferences), [ChromeLauncher.bat](/Chrome/ChromeLauncher.bat).
+- Ready-to-use files for Vivaldi user data: [Local State](/Vivaldi/Local State), [Preferences](/Vivaldi/Preferences), [custom.css](/Vivaldi/custom.css), [VivaldiLauncher.bat](/Vivaldi/VivaldiLauncher.bat).
+
+
+
+Please, proceed with caution!
