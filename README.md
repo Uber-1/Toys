@@ -16,14 +16,14 @@ Just save and run any script you wish.
 
 
 
-### PortableCreators for Firefox-based browsers:
+### PortableCreators for Firefox-based browsers
 - [Firefox Portable Creator](/BAT_SA/FirefoxPortableCreator.bat) - for latest regular Firefox stable release.
 - [Firefox ESR Portable Creator](/BAT_SA/FirefoxEsrPortableCreator.bat) - for latest ESR Firefox stable release.
 - [Waterfox Portable Creator](/BAT_SA/WaterfoxPortableCreator.bat) - for latest Waterfox stable release.
 
 
 
-### PortableCreators for Chrome-based browsers:
+### PortableCreators for Chrome-based browsers
 - [Brave Portable Creator](/BAT_SA/BravePortableCreator.cmd) - for latest Brave stable release.
 - [Catsxp Portable Creator](/BAT_SA/CatsxpPortableCreator.cmd) - for latest CatsXP release.
 - [Catsxp Portable CreatorV](/BAT_SA/CatsxpPortableCreatorV.cmd) - for latest CatsXP release + *version.dll (Chrome++ DLL)*.
@@ -48,13 +48,13 @@ Just save and run any script you wish.
 
 
 
-### Toys for Firefox:
+### Toys for Firefox
 - [Firefox Desktop Link for portable](/BAT_SA/FirefoxDesktopLink_portable.bat) - use from firefox.exe folder.
 - [Firefox&Waterfox Clean AppData](/BAT_SA/Firefox-Waterfox-CleanAppData.bat) - use to prevent unwanted folders. *Caution! Don't use this with installed version of Firefox! It will delete the AppData profile folders!*
 
 
 
-### Toys for Chrome-based browsers:
+### Toys for Chrome-based browsers
 - [Google Chrome Links Finder](/BAT_SA/GChrome_LinksFinder.bat) - this will give you links for current version of Google Chrome setup (for WXP, W7…8.1, W10+).
 - [MS Edge Uninstaller](/BAT_SA/MsEdgeUninstall.bat) - easy uninstall MS Edge (find setup.exe in *Program Files (x86)\Microsoft\Edge* folder and run it from there).
 - [Disable MS Edge update tasks and services.cmd](/BAT_SA/Disable MS Edge update tasks and services.cmd) - use to disable MS Edge update tasks and services.
