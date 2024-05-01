@@ -57,7 +57,7 @@ Just save and run any script you wish.
 ### Toys for Chrome-based browsers
 - [Google Chrome Links Finder](/BAT_SA/GChrome_LinksFinder.bat) - this will give you links for current version of Google Chrome setup (for WXP, W7…8.1, W10+).
 - [MS Edge Uninstaller](/BAT_SA/MsEdgeUninstall.bat) - easy uninstall MS Edge (find setup.exe in *Program Files (x86)\Microsoft\Edge* folder and run it from there).
-- [Disable MS Edge update tasks and services.cmd](/BAT_SA/Disable MS Edge update tasks and services.cmd) - use to disable MS Edge update tasks and services.
+- [Disable MS Edge update tasks and services.cmd](/BAT_SA/Disable%20MS%20Edge%20update%20tasks%20and%20services.cmd) - use to disable MS Edge update tasks and services.
 - [Opera autoupdate disable](/BAT_SA/REG_opera_autoupdate_disabled.bat) - disable Opera updates for current user.
 - [Clear HKCU from Chrome garbage](/BAT_SA/Clear-HKCU-Chrome.reg) - remove garbage of Chrome-based browsers from registry (current user).
 
