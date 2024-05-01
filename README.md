@@ -1,7 +1,8 @@
-Some useful toys for geeks and users...
-===========
+# Some useful toys for geeks and users...
 
 Try if you wish without any warranty!
+Please, proceed with caution!
+
 
 There's no release calendar.
 Further updates happen any time.
@@ -69,4 +70,3 @@ Just save and run any script you wish.
 
 
 
-Please, proceed with caution!
