@@ -1,12 +1,12 @@
 @echo off
-@title Waterfox Portable Creator - ver.4.6 [30.04.2024]
+@title Waterfox Portable Creator - ver.4.6.1 [05.05.2024]
 @cd /d "%~dp0"
 
-@if not exist "curl.exe" @if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
 @echo Downloading with powershell . . .
 @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://cdn1.waterfox.net'); $wc.DownloadFile('https://cdn1.waterfox.net/waterfox/releases/latest/windows', 'wfwin.exe.7z')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://www.7-zip.org/a/7zr.exe', '7zr.exe')"
-) else (
+)) else (
 @echo Downloading with CURL . . .
 @curl.exe -RL# "https://cdn1.waterfox.net/waterfox/releases/latest/windows" -e"https://cdn1.waterfox.net" -o "wfwin.exe.7z"
 @curl.exe -RLO# "https://www.7-zip.org/a/7zr.exe"
@@ -1159,7 +1159,7 @@
 (@echo @cd core&@echo @start waterfox.exe -no-remote -profile ..\portable %%*)>"WaterfoxPortable\WaterfoxPortable.bat"
 
 @md "WaterfoxPortable\portable\extensions"
-@if not exist "curl.exe" @if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
 @echo Downloading with powershell . . .
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/', 'WaterfoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/', 'WaterfoxPortable\portable\extensions\@m3u8link.xpi')"
@@ -1169,7 +1169,7 @@
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/', 'WaterfoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/', 'WaterfoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/', 'WaterfoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi')"
-) else (
+)) else (
 @echo Downloading with CURL . . .
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/" -o "WaterfoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi"
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/" -o "WaterfoxPortable\portable\extensions\@m3u8link.xpi"

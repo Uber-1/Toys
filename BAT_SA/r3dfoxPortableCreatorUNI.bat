@@ -1,29 +1,33 @@
 @echo off
-@title Firefox Portable Creator - ver.4.6.1 [05.05.2024]
+@title r3dfox Portable Creator - ver.4.6.1 [05.05.2024]
 @cd /d "%~dp0"
 
-::  https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt
-::  product=firefox-latest	- version
-::  os=win	- 32 bits
-::  os=win64	- 64 bits
-::  lang=en-US	- English
-::  lang=ru	- Russian
-::  lang=uk	- Ukrainian
+@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@echo Checking version with powershell . . .
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Eclipse-Community/r3dfox/releases/latest', 'latest')"
+)) else (
+@echo Checking version with CURL . . .
+@curl.exe -RL# "https://github.com/Eclipse-Community/r3dfox/releases/latest" -o "latest"
+)
+
+@for /f "eol=- tokens=1-26 delims=v " %%a in ('@type "latest" ^| @FINDSTR /IRC:"title.*.Release.v.*.r3dfox"') do (@if NOT DEFINED r3dfoxLatest (@set r3dfoxLatest=%%c))
+@echo r3dfox Latest Version: [%r3dfoxLatest%]
+@del "latest" /q
 
 @if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
 @echo Downloading with powershell . . .
-@powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://download.mozilla.org'); $wc.DownloadFile('https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US', 'ffwin.exe.7z')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Eclipse-Community/r3dfox/releases/download/%r3dfoxLatest%/r3dfox-%r3dfoxLatest%.en-US.win32.installer.exe', 'r3dfwin.exec')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://www.7-zip.org/a/7zr.exe', '7zr.exe')"
 )) else (
 @echo Downloading with CURL . . .
-@curl.exe -RL# "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US" -e"https://download.mozilla.org" -o "ffwin.exe.7z"
+@curl.exe -RL# "https://github.com/Eclipse-Community/r3dfox/releases/download/%r3dfoxLatest%/r3dfox-%r3dfoxLatest%.en-US.win32.installer.exe" -o "r3dfwin.exec"
 @curl.exe -RLO# "https://www.7-zip.org/a/7zr.exe"
 )
 
-@md "FirefoxPortable\core\defaults\pref"
-@md "FirefoxPortable\core\distribution"
-@"7zr.exe" x -t7z -bso0 "ffwin.exe.7z" -o"FirefoxPortable" -xr!setup.exe -xr!*crashreporter* -xr!*default*agent* -xr!maintenanceservice*.exe -xr!minidump-analyzer.exe -xr!updater* -xr!uninstall
-@del "7zr.exe" "ffwin.exe.7z" /q
+@md "r3dfoxPortable\core\defaults\pref"
+@md "r3dfoxPortable\core\distribution"
+@"7zr.exe" x -t7z -bso0 "r3dfwin.exec" -o"r3dfoxPortable" -xr!setup.exe -xr!*crashreporter* -xr!*default*agent* -xr!maintenanceservice*.exe -xr!minidump-analyzer.exe -xr!updater* -xr!uninstall
+@del "7zr.exe" "r3dfwin.exec" /q
 
 (
 @echo // Mozilla User Preferences
@@ -535,14 +539,14 @@
 @echo defaultPref^("widget.non-native-theme.scrollbar.style", 5^);
 @echo defaultPref^("widget.windows.overlay-scrollbars.enabled", true^);
 @echo //  defaultPref^("widget.non-native-theme.scrollbar.style", 5^);  //  Default = 0 ; macOs = 1 ; GTK = 2 ; Android = 3 ; W10 = 4 ; W11 = 5
-)>"FirefoxPortable\core\autoconfiglocal.js"
+)>"r3dfoxPortable\core\autoconfiglocal.js"
 
 (
 @echo // autoconfig.js file needs to start with a comment
 @echo pref^("general.config.filename", "autoconfiglocal.js"^);
 @echo pref^("general.config.sandbox_enabled", false^);
 @echo pref^("general.config.obscure_value", 0^);
-)>"FirefoxPortable\core\defaults\pref\autoconfig.js"
+)>"r3dfoxPortable\core\defaults\pref\autoconfig.js"
 
 (
 @echo # Partner Distribution Configuration File
@@ -557,17 +561,17 @@
 @echo [Preferences]
 @echo media.eme.enabled=false
 @echo app.partner.mozilla-EMEfree="mozilla-EMEfree"
-)>"FirefoxPortable\core\distribution\distribution.ini"
+)>"r3dfoxPortable\core\distribution\distribution.ini"
 
-(@echo {"policies":{"DisableAppUpdate":true}})>"FirefoxPortable\core\distribution\policies.json"
+(@echo {"policies":{"DisableAppUpdate":true}})>"r3dfoxPortable\core\distribution\policies.json"
 
-@md "FirefoxPortable\portable"
-@md "FirefoxPortable\portable\chrome"
+@md "r3dfoxPortable\portable"
+@md "r3dfoxPortable\portable\chrome"
 
 (
 @echo.@-moz-document domain^("youtube.com"^) {:root {scrollbar-width: none !important; /* thin/auto/none */} }
 @echo.@-moz-document url^("about:privatebrowsing"^) { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
-)>"FirefoxPortable\portable\chrome\userContent.css"
+)>"r3dfoxPortable\portable\chrome\userContent.css"
 
 (
 @echo./* Left menu */
@@ -639,9 +643,9 @@
 @echo.
 @echo./* 119 */
 @echo.#private-browsing-indicator-with-label ^> label {display: none;}
-)>"FirefoxPortable\portable\chrome\userChrome.css"
+)>"r3dfoxPortable\portable\chrome\userChrome.css"
 
-(@echo {"windows":[],"selectedWindow":0,"_closedWindows":[],"session":{},"scratchpads":[],"global":{}})>"FirefoxPortable\portable\sessionstore.js"
+(@echo {"windows":[],"selectedWindow":0,"_closedWindows":[],"session":{},"scratchpads":[],"global":{}})>"r3dfoxPortable\portable\sessionstore.js"
 
 (
 @echo // Mozilla User Preferences
@@ -1162,31 +1166,31 @@
 @echo user_pref^("widget.non-native-theme.scrollbar.style", 5^);
 @echo user_pref^("widget.windows.overlay-scrollbars.enabled", true^);
 @echo //  user_pref^("widget.non-native-theme.scrollbar.style", 5^);  //  Default = 0 ; macOs = 1 ; GTK = 2 ; Android = 3 ; W10 = 4 ; W11 = 5
-)>"FirefoxPortable\portable\prefs.js"
+)>"r3dfoxPortable\portable\prefs.js"
 
-(@echo @cd core&@echo @start firefox.exe -no-remote -profile ..\portable %%*)>"FirefoxPortable\FirefoxPortable.bat"
+(@echo @cd core&@echo @start r3dfox.exe -no-remote -profile ..\portable %%*)>"r3dfoxPortable\r3dfoxPortable.bat"
 
-@md "FirefoxPortable\portable\extensions"
+@md "r3dfoxPortable\portable\extensions"
 @if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
 @echo Downloading with powershell . . .
-@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/', 'FirefoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi')"
-@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/', 'FirefoxPortable\portable\extensions\@m3u8link.xpi')"
-@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/noscript/', 'FirefoxPortable\portable\extensions\{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi')"
-@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/save-page-we/', 'FirefoxPortable\portable\extensions\savepage-we@DW-dev.xpi')"
-@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/send-to-my-phone-qr-code-gener/', 'FirefoxPortable\portable\extensions\jid1-dgAsBwQgc4SQBk@jetpack.xpi')"
-@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/', 'FirefoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi')"
-@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/', 'FirefoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi')"
-@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/', 'FirefoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/', 'r3dfoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/', 'r3dfoxPortable\portable\extensions\@m3u8link.xpi')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/noscript/', 'r3dfoxPortable\portable\extensions\{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/save-page-we/', 'r3dfoxPortable\portable\extensions\savepage-we@DW-dev.xpi')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/send-to-my-phone-qr-code-gener/', 'r3dfoxPortable\portable\extensions\jid1-dgAsBwQgc4SQBk@jetpack.xpi')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/', 'r3dfoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/', 'r3dfoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/', 'r3dfoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi')"
 )) else (
 @echo Downloading with CURL . . .
-@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/" -o "FirefoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi"
-@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/" -o "FirefoxPortable\portable\extensions\@m3u8link.xpi"
-@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/noscript/" -o "FirefoxPortable\portable\extensions\{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi"
-@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/save-page-we/" -o "FirefoxPortable\portable\extensions\savepage-we@DW-dev.xpi"
-@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/send-to-my-phone-qr-code-gener/" -o "FirefoxPortable\portable\extensions\jid1-dgAsBwQgc4SQBk@jetpack.xpi"
-@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/" -o "FirefoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi"
-@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/" -o "FirefoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi"
-@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/" -o "FirefoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi"
+@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/" -o "r3dfoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi"
+@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/" -o "r3dfoxPortable\portable\extensions\@m3u8link.xpi"
+@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/noscript/" -o "r3dfoxPortable\portable\extensions\{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi"
+@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/save-page-we/" -o "r3dfoxPortable\portable\extensions\savepage-we@DW-dev.xpi"
+@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/send-to-my-phone-qr-code-gener/" -o "r3dfoxPortable\portable\extensions\jid1-dgAsBwQgc4SQBk@jetpack.xpi"
+@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/" -o "r3dfoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi"
+@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/" -o "r3dfoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi"
+@curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/" -o "r3dfoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi"
 )
 
 @echo.
