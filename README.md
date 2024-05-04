@@ -19,6 +19,7 @@ Just save and run any script you wish.
 ### PortableCreators for Firefox-based browsers
 - [Firefox Portable Creator](/BAT_SA/FirefoxPortableCreator.bat) - for latest regular Firefox stable release.
 - [Firefox ESR Portable Creator](/BAT_SA/FirefoxEsrPortableCreator.bat) - for latest ESR Firefox stable release.
+- [r3dfox Portable Creator](/BAT_SA/r3dfoxPortableCreator.bat) - for latest r3dfox stable release.
 - [Waterfox Portable Creator](/BAT_SA/WaterfoxPortableCreator.bat) - for latest Waterfox stable release.
 
 
