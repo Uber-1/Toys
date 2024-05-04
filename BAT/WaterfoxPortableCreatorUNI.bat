@@ -4,11 +4,11 @@
 
 @if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
 @echo Downloading with powershell . . .
-@powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://cdn1.waterfox.net'); $wc.DownloadFile('https://cdn1.waterfox.net/waterfox/releases/G6.0.4/WINNT_x86_64/Waterfox%%20Setup%%20G6.0.4.exe', 'wfwin.exe.7z')"
+@powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://cdn1.waterfox.net'); $wc.DownloadFile('https://cdn1.waterfox.net/waterfox/releases/latest/windows', 'wfwin.exe.7z')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://www.7-zip.org/a/7zr.exe', '7zr.exe')"
 )) else (
 @echo Downloading with CURL . . .
-@curl.exe -RL# "https://cdn1.waterfox.net/waterfox/releases/G6.0.4/WINNT_x86_64/Waterfox%%20Setup%%20G6.0.4.exe" -e"https://cdn1.waterfox.net" -o "wfwin.exe.7z"
+@curl.exe -RL# "https://cdn1.waterfox.net/waterfox/releases/latest/windows" -e"https://cdn1.waterfox.net" -o "wfwin.exe.7z"
 @curl.exe -RLO# "https://www.7-zip.org/a/7zr.exe"
 )
 
