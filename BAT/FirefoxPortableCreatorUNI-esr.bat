@@ -10,11 +10,11 @@
 :: lang=ru	- Russian
 :: lang=uk	- Ukrainian
 
-@if not exist "curl.exe" @if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
 @echo Downloading with powershell . . .
 @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://download.mozilla.org'); $wc.DownloadFile('https://download.mozilla.org/?product=firefox-esr-latest&os=win&lang=en-US', 'ffwin.exe.7z')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://www.7-zip.org/a/7zr.exe', '7zr.exe')"
-) else (
+)) else (
 @echo Downloading with CURL . . .
 @curl.exe -RL# "https://download.mozilla.org/?product=firefox-esr-latest&os=win&lang=en-US" -e"https://download.mozilla.org" -o "ffwin.exe.7z"
 @curl.exe -RLO# "https://www.7-zip.org/a/7zr.exe"
@@ -28,7 +28,7 @@
 @md "FirefoxPortable\portable"
 @md "FirefoxPortable\portable\chrome"
 
-@if not exist "curl.exe" @if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
 @echo Downloading with powershell . . .
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Uber-1/Toys/raw/main/Firefox/autoconfiglocal.js', 'FirefoxPortable\core\autoconfiglocal.js')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Uber-1/Toys/raw/main/Firefox/autoconfig.js', 'FirefoxPortable\core\defaults\pref\autoconfig.js')"
@@ -37,7 +37,7 @@
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Uber-1/Toys/raw/main/Firefox/userContent.css', 'FirefoxPortable\portable\chrome\userContent.css')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Uber-1/Toys/raw/main/Firefox/userChrome.css', 'FirefoxPortable\portable\chrome\userChrome.css')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Uber-1/Toys/raw/main/Firefox/prefs.js', 'FirefoxPortable\portable\prefs.js')"
-) else (
+)) else (
 @echo Downloading with CURL . . .
 @curl -RL# "https://github.com/Uber-1/Toys/raw/main/Firefox/autoconfiglocal.js" -o "FirefoxPortable\core\autoconfiglocal.js"
 @curl -RL# "https://github.com/Uber-1/Toys/raw/main/Firefox/autoconfig.js" -o "FirefoxPortable\core\defaults\pref\autoconfig.js"
@@ -51,7 +51,7 @@
 (@echo @cd core&@echo @start firefox.exe -no-remote -profile ..\portable %%*)>"FirefoxPortable\FirefoxPortable.bat"
 
 @md "FirefoxPortable\portable\extensions"
-@if not exist "curl.exe" @if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
 @echo Downloading with powershell . . .
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/', 'FirefoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/', 'FirefoxPortable\portable\extensions\@m3u8link.xpi')"
@@ -61,7 +61,7 @@
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/', 'FirefoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/', 'FirefoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/', 'FirefoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi')"
-) else (
+)) else (
 @echo Downloading with CURL . . .
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/" -o "FirefoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi"
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/" -o "FirefoxPortable\portable\extensions\@m3u8link.xpi"
