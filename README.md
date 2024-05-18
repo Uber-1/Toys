@@ -71,3 +71,8 @@ Just save and run any script you wish.
 
 
 
+### Other software toys
+- [Audacity Latest Win](/BAT_SA/AudacityLatestWin.bat) - for latest Audacity zip release.
+- [Avidemux Nightly QT x64](/BAT_SA/AvidemuxNightlyQTx64.bat) - for latest Avidemux zip release.
+
+
