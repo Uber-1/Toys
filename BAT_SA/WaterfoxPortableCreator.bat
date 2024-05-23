@@ -1,5 +1,5 @@
 @echo off
-@title Waterfox Portable Creator - ver.4.6.1 [05.05.2024]
+@title Waterfox Portable Creator - ver.4.6.2 [23.05.2024]
 @cd /d "%~dp0"
 
 @if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
@@ -194,6 +194,7 @@
 @echo defaultPref^("browser.search.geoSpecificDefaults.url", ""^);
 @echo defaultPref^("browser.search.reset.enabled", false^);
 @echo defaultPref^("browser.search.reset.whitelist", ""^);
+@echo defaultPref^("browser.search.serpEventTelemetryCategorization.enabled", false^);
 @echo defaultPref^("browser.search.suggest.enabled", false^);
 @echo defaultPref^("browser.search.suggest.enabled.private", false^);
 @echo defaultPref^("browser.search.update", false^);
@@ -821,6 +822,7 @@
 @echo user_pref^("browser.search.geoSpecificDefaults.url", ""^);
 @echo user_pref^("browser.search.reset.enabled", false^);
 @echo user_pref^("browser.search.reset.whitelist", ""^);
+@echo user_pref^("browser.search.serpEventTelemetryCategorization.enabled", false^);
 @echo user_pref^("browser.search.suggest.enabled", false^);
 @echo user_pref^("browser.search.suggest.enabled.private", false^);
 @echo user_pref^("browser.search.update", false^);

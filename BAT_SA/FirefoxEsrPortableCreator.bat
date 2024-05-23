@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.4.6.1 [05.05.2024]
+@title Firefox Portable Creator - ver.4.6.2 [23.05.2024]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest-esr/README.txt
@@ -202,6 +202,7 @@
 @echo defaultPref^("browser.search.geoSpecificDefaults.url", ""^);
 @echo defaultPref^("browser.search.reset.enabled", false^);
 @echo defaultPref^("browser.search.reset.whitelist", ""^);
+@echo defaultPref^("browser.search.serpEventTelemetryCategorization.enabled", false^);
 @echo defaultPref^("browser.search.suggest.enabled", false^);
 @echo defaultPref^("browser.search.suggest.enabled.private", false^);
 @echo defaultPref^("browser.search.update", false^);
@@ -829,6 +830,7 @@
 @echo user_pref^("browser.search.geoSpecificDefaults.url", ""^);
 @echo user_pref^("browser.search.reset.enabled", false^);
 @echo user_pref^("browser.search.reset.whitelist", ""^);
+@echo user_pref^("browser.search.serpEventTelemetryCategorization.enabled", false^);
 @echo user_pref^("browser.search.suggest.enabled", false^);
 @echo user_pref^("browser.search.suggest.enabled.private", false^);
 @echo user_pref^("browser.search.update", false^);
