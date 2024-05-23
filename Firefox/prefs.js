@@ -183,6 +183,7 @@ user_pref("browser.search.geoSpecificDefaults", false);
 user_pref("browser.search.geoSpecificDefaults.url", "");
 user_pref("browser.search.reset.enabled", false);
 user_pref("browser.search.reset.whitelist", "");
+user_pref("browser.search.serpEventTelemetryCategorization.enabled", false);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.search.update", false);
