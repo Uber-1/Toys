@@ -40,4 +40,4 @@
 .tabs-top.address-top#browser.win:not(.fullscreen, .disable-titlebar) #header { min-height: calc(30px / var(--uiZoomLevel) ); }
 
 /* fix for unwanted border height */
-.address-top .mainbar { border-bottom-width:0px; } 
+.address-top .mainbar { border-bottom-width:0px; }
