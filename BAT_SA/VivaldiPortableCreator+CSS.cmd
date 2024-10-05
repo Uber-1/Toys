@@ -1,5 +1,5 @@
 @echo off
-@title Vivaldi downloader + configer ^| ver.4.2 [03.10.2024]
+@title Vivaldi downloader + configer ^| ver.4.2.1 [05.10.2024]
 @cd /d "%~dp0"
 @echo.
 @echo Release channel:
@@ -62,6 +62,7 @@
 @echo #main ^> div.mainbar ^> div ^> div.toolbar-extensions { position:absolute !important; transform:translate^(-100%%, 0^); /* background-color:var^(--colorAccentBg^) !important; */ transition:background-color 0.7s ease-out; left:calc^(100vw - 173px^) !important; height:30px !important; right:unset !important; top:0px; border-radius:var^(--radiusHalf^)!important; }
 @echo .toolbar-mainbar .toolbar-extensions { background-color:transparent; }
 @echo .toolbar-mainbar .toolbar-extensions:after, .toolbar-mainbar:after { display:none !important; }
+@echo..toolbar-extensions { position:absolute !important; transform:translate^(-100%%, 0^); /* background-color:var^(--colorAccentBg^) !important; */ transition:background-color 0.7s ease-out; left:calc^(100vw - 173px^) !important; height:30px !important; right:unset !important; top:0px; }
 @echo.
 @echo /* расположение вкладок, их свойства */
 @echo #tabs-container:not^(.none^).top { padding-left:calc^(31vw + 173px + 35px^) !important; padding-right:173px !important; padding-top:0px !important; margin-top:0px; min-height:30px; transition:0.3s; }
@@ -88,10 +89,10 @@
 @echo.
 @echo /* фикс позиции элементов в оконном режиме */
 @echo .vivaldi { margin-top:0px !important; }
-@echo .tabs-top.address-top#browser.win:not^(.fullscreen, .disable-titlebar^) #header { min-height: calc^(30px / var^(--uiZoomLevel^) ^); }
+@echo .tabs-top.address-top#browser.win:not^(.fullscreen, .disable-titlebar^) #header { min-height:calc^(30px / var^(--uiZoomLevel^) ^); }
 @echo.
 @echo /* фикс лишнего пикселя высоты внизу панели */
-@echo .address-top .mainbar { border-bottom-width:0px; } 
+@echo .address-top .mainbar { border-bottom-width:0px; }
 )>"VivaldiPortable\Vivaldi-bin-win32\%VIVER%\CSS\custom.css"
 @copy "VivaldiPortable\Vivaldi-bin-win32\%VIVER%\CSS\custom.css" "VivaldiPortable\Vivaldi-bin-win64\%VIVER%\CSS\custom.css"
 
