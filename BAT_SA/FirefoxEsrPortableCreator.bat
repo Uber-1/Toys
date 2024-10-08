@@ -1,24 +1,26 @@
 @echo off
-@title Firefox Portable Creator - ver.4.6.2 [23.05.2024]
+@title Firefox Portable Creator - ver.4.7.1 [08.10.2024]
 @cd /d "%~dp0"
 
-::  https://ftp.mozilla.org/pub/firefox/releases/latest-esr/README.txt
-::  product=firefox-esr-latest	- version
+::  https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt
+::  product=firefox-latest	- version
 ::  os=win	- 32 bits
 ::  os=win64	- 64 bits
 ::  lang=en-US	- English
 ::  lang=ru	- Russian
 ::  lang=uk	- Ukrainian
 
-@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if exist "curl.exe" @GOTO CURLDL
+@if exist "%SystemRoot%\SYSTEM32\curl.exe" @GOTO CURLDL
 @echo Downloading with powershell . . .
-@powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://download.mozilla.org'); $wc.DownloadFile('https://download.mozilla.org/?product=firefox-esr-latest&os=win&lang=en-US', 'ffwin.exe.7z')"
+@powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://download.mozilla.org'); $wc.DownloadFile('https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US', 'ffwin.exe.7z')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://www.7-zip.org/a/7zr.exe', '7zr.exe')"
-)) else (
+@GOTO MAKECONFIG
+:CURLDL
 @echo Downloading with CURL . . .
-@curl.exe -RL# "https://download.mozilla.org/?product=firefox-esr-latest&os=win&lang=en-US" -e"https://download.mozilla.org" -o "ffwin.exe.7z"
+@curl.exe -RL# "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US" -e"https://download.mozilla.org" -o "ffwin.exe.7z"
 @curl.exe -RLO# "https://www.7-zip.org/a/7zr.exe"
-)
+:MAKECONFIG
 
 @md "FirefoxPortable\core\defaults\pref"
 @md "FirefoxPortable\core\distribution"
@@ -307,6 +309,7 @@
 @echo defaultPref^("dom.mozApps.used", true^);
 @echo defaultPref^("dom.netinfo.enabled", false^);
 @echo defaultPref^("dom.network.enabled", false^);
+@echo defaultPref^("dom.private-attribution.submission.enabled", false^);
 @echo defaultPref^("dom.push.connection.enabled", false^);
 @echo defaultPref^("dom.push.enabled", false^);
 @echo defaultPref^("dom.push.serverURL", ""^);
@@ -428,7 +431,7 @@
 @echo defaultPref^("network.captive-portal-service.enabled", false^);
 @echo defaultPref^("network.captive-portal-service.maxInterval", 0^);
 @echo defaultPref^("network.cookie.cookieBehavior", 1^);
-@echo defaultPref^("network.cookie.lifetimePolicy", 2^);
+@echo // defaultPref^("network.cookie.lifetimePolicy", 2^);
 @echo defaultPref^("network.cookie.prefsMigrated", true^);
 @echo defaultPref^("network.cookie.thirdparty.sessionOnly", true^);
 @echo // defaultPref^("network.dns.disableIPv6", true^);
@@ -568,6 +571,7 @@
 (
 @echo.@-moz-document domain^("youtube.com"^) {:root {scrollbar-width: none !important; /* thin/auto/none */} }
 @echo.@-moz-document url^("about:privatebrowsing"^) { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
+@echo.:root {scrollbar-color: #ff9900 transparent !important; }
 )>"FirefoxPortable\portable\chrome\userContent.css"
 
 (
@@ -935,6 +939,7 @@
 @echo user_pref^("dom.mozApps.used", true^);
 @echo user_pref^("dom.netinfo.enabled", false^);
 @echo user_pref^("dom.network.enabled", false^);
+@echo user_pref^("dom.private-attribution.submission.enabled", false^);
 @echo user_pref^("dom.push.connection.enabled", false^);
 @echo user_pref^("dom.push.enabled", false^);
 @echo user_pref^("dom.push.serverURL", ""^);
@@ -1169,7 +1174,8 @@
 (@echo @cd core&@echo @start firefox.exe -no-remote -profile ..\portable %%*)>"FirefoxPortable\FirefoxPortable.bat"
 
 @md "FirefoxPortable\portable\extensions"
-@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if exist "curl.exe" @GOTO CURLDL2
+@if exist "%SystemRoot%\SYSTEM32\curl.exe" @GOTO CURLDL2
 @echo Downloading with powershell . . .
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/', 'FirefoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/', 'FirefoxPortable\portable\extensions\@m3u8link.xpi')"
@@ -1179,7 +1185,8 @@
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/', 'FirefoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/', 'FirefoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/', 'FirefoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi')"
-)) else (
+@GOTO XPIDONE
+:CURLDL2
 @echo Downloading with CURL . . .
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/" -o "FirefoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi"
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/" -o "FirefoxPortable\portable\extensions\@m3u8link.xpi"
@@ -1189,7 +1196,7 @@
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/" -o "FirefoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi"
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/" -o "FirefoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi"
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/" -o "FirefoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi"
-)
+:XPIDONE
 
 @echo.
 @echo Done!

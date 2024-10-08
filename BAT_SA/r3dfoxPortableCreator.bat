@@ -1,5 +1,5 @@
 @echo off
-@title r3dfox Portable Creator - ver.4.6.2 [23.05.2024]
+@title r3dfox Portable Creator - ver.4.7.1 [08.10.2024]
 @cd /d "%~dp0"
 
 @if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
@@ -14,15 +14,17 @@
 @echo r3dfox Latest Version: [%r3dfoxLatest%]
 @del "latest" /q
 
-@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if exist "curl.exe" @GOTO CURLDL
+@if exist "%SystemRoot%\SYSTEM32\curl.exe" @GOTO CURLDL
 @echo Downloading with powershell . . .
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Eclipse-Community/r3dfox/releases/download/%r3dfoxLatest%/r3dfox-%r3dfoxLatest%.en-US.win32.installer.exe', 'r3dfwin.exec')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://www.7-zip.org/a/7zr.exe', '7zr.exe')"
-)) else (
+@GOTO MAKECONFIG
+:CURLDL
 @echo Downloading with CURL . . .
 @curl.exe -RL# "https://github.com/Eclipse-Community/r3dfox/releases/download/%r3dfoxLatest%/r3dfox-%r3dfoxLatest%.en-US.win32.installer.exe" -o "r3dfwin.exec"
 @curl.exe -RLO# "https://www.7-zip.org/a/7zr.exe"
-)
+:MAKECONFIG
 
 @md "r3dfoxPortable\core\defaults\pref"
 @md "r3dfoxPortable\core\distribution"
@@ -311,6 +313,7 @@
 @echo defaultPref^("dom.mozApps.used", true^);
 @echo defaultPref^("dom.netinfo.enabled", false^);
 @echo defaultPref^("dom.network.enabled", false^);
+@echo defaultPref^("dom.private-attribution.submission.enabled", false^);
 @echo defaultPref^("dom.push.connection.enabled", false^);
 @echo defaultPref^("dom.push.enabled", false^);
 @echo defaultPref^("dom.push.serverURL", ""^);
@@ -432,7 +435,7 @@
 @echo defaultPref^("network.captive-portal-service.enabled", false^);
 @echo defaultPref^("network.captive-portal-service.maxInterval", 0^);
 @echo defaultPref^("network.cookie.cookieBehavior", 1^);
-@echo defaultPref^("network.cookie.lifetimePolicy", 2^);
+@echo // defaultPref^("network.cookie.lifetimePolicy", 2^);
 @echo defaultPref^("network.cookie.prefsMigrated", true^);
 @echo defaultPref^("network.cookie.thirdparty.sessionOnly", true^);
 @echo // defaultPref^("network.dns.disableIPv6", true^);
@@ -572,6 +575,7 @@
 (
 @echo.@-moz-document domain^("youtube.com"^) {:root {scrollbar-width: none !important; /* thin/auto/none */} }
 @echo.@-moz-document url^("about:privatebrowsing"^) { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
+@echo.:root {scrollbar-color: #ff9900 transparent !important; }
 )>"r3dfoxPortable\portable\chrome\userContent.css"
 
 (
@@ -939,6 +943,7 @@
 @echo user_pref^("dom.mozApps.used", true^);
 @echo user_pref^("dom.netinfo.enabled", false^);
 @echo user_pref^("dom.network.enabled", false^);
+@echo user_pref^("dom.private-attribution.submission.enabled", false^);
 @echo user_pref^("dom.push.connection.enabled", false^);
 @echo user_pref^("dom.push.enabled", false^);
 @echo user_pref^("dom.push.serverURL", ""^);
@@ -1173,7 +1178,8 @@
 (@echo @cd core&@echo @start r3dfox.exe -no-remote -profile ..\portable %%*)>"r3dfoxPortable\r3dfoxPortable.bat"
 
 @md "r3dfoxPortable\portable\extensions"
-@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if exist "curl.exe" @GOTO CURLDL2
+@if exist "%SystemRoot%\SYSTEM32\curl.exe" @GOTO CURLDL2
 @echo Downloading with powershell . . .
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/', 'r3dfoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/', 'r3dfoxPortable\portable\extensions\@m3u8link.xpi')"
@@ -1183,7 +1189,8 @@
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/', 'r3dfoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/', 'r3dfoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/', 'r3dfoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi')"
-)) else (
+@GOTO XPIDONE
+:CURLDL2
 @echo Downloading with CURL . . .
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/" -o "r3dfoxPortable\portable\extensions\{9a41dee2-b924-4161-a971-7fb35c053a4a}.xpi"
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/hls-stream-detector/" -o "r3dfoxPortable\portable\extensions\@m3u8link.xpi"
@@ -1193,7 +1200,7 @@
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/smart-rss-reader/" -o "r3dfoxPortable\portable\extensions\smart-rss@mozilla.firefox.xpi"
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/" -o "r3dfoxPortable\portable\extensions\uBlock0@raymondhill.net.xpi"
 @curl -RL# "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/" -o "r3dfoxPortable\portable\extensions\sponsorBlocker@ajay.app.xpi"
-)
+:XPIDONE
 
 @echo.
 @echo Done!
