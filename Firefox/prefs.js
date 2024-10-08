@@ -288,6 +288,7 @@ user_pref("dom.keyboardevent.dispatch_during_composition", false);
 user_pref("dom.mozApps.used", true);
 user_pref("dom.netinfo.enabled", false);
 user_pref("dom.network.enabled", false);
+user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("dom.push.connection.enabled", false);
 user_pref("dom.push.enabled", false);
 user_pref("dom.push.serverURL", "");
