@@ -1,5 +1,5 @@
 @echo off
-@title Ungoogled Chromium downloader + configer ^| ver.2.0 [20.10.2023] ^| %PROCESSOR_ARCHITECTURE%
+@title Ungoogled Chromium downloader + configer ^| ver.2.1 [25.11.2024] ^| %PROCESSOR_ARCHITECTURE%
 @cd /d "%~dp0"
 
 @echo.
@@ -30,7 +30,7 @@
 @curl.exe -RLO# "https://github.com/ungoogled-software/ungoogled-chromium-windows/releases/download/%DefVerUngCr%/ungoogled-chromium_%DefVerUngCr%_windows_%DefBitsUngCr%.zip"
 @tar -xf "ungoogled-chromium_%DefVerUngCr%_windows_%DefBitsUngCr%.zip"
 @del /f /q "ungoogled-chromium_%DefVerUngCr%_windows_%DefBitsUngCr%.zip"
-@set UngFolderName=ungoogled-chromium_%DefVerUngCr%_windows
+@set UngFolderName=ungoogled-chromium_%DefVerUngCr%_windows_%DefBitsUngCr%
 
 :UngCrChan-CONFIG
 @echo.
@@ -43,7 +43,7 @@
 (@echo %cr_loca1%)>"%UngFolderName%\UserData\Local State"
 (@echo %cr_pref1%)>"%UngFolderName%\UserData\Default\Preferences"
 (@echo @start Chrome.exe --user-data-dir=UserData --disable-gpu-shader-disk-cache --disk-cache-dir=nul --disk-cache-size=1 --disable-background-networking --disable-component-update --no-default-browser-check --disable-machine-id --disable-encryption --popups-to-tabs --close-window-with-last-tab=never --show-avatar-button=never)>"%UngFolderName%\\UngoogledChromiumLauncher.bat"
-@type NUL>"%UngFolderName%\UserData\First Run"
+::@type NUL>"%UngFolderName%\UserData\First Run"
 
 @echo.
 @echo Bookmarks...
