@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.4.7.1 [08.10.2024]
+@title Firefox Portable Creator - ver.4.7.2 [27.11.2024]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt
@@ -572,6 +572,7 @@
 @echo.@-moz-document domain^("youtube.com"^) {:root {scrollbar-width: none !important; /* thin/auto/none */} }
 @echo.@-moz-document url^("about:privatebrowsing"^) { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
 @echo.:root {scrollbar-color: #ff9900 transparent !important; }
+@echo @-moz-document domain^("youtube.com"^) { ytd-thumbnail[size] a.ytd-thumbnail, ytd-thumbnail[size]:before, ytd-watch-flexy[default-layout] #ytd-player.ytd-watch-flexy, .player-container.ytd-reel-video-renderer, ytd-player.ytd-shorts, .ytp-tooltip.ytp-preview, .ytp-tooltip.ytp-preview .ytp-tooltip-bg { border-radius: 0 !important; } }
 )>"FirefoxPortable\portable\chrome\userContent.css"
 
 (
@@ -644,6 +645,9 @@
 @echo.
 @echo./* 119 */
 @echo.#private-browsing-indicator-with-label ^> label {display: none;}
+@echo.
+@echo./* 133 */
+@echo.#TabsToolbar :is^(#private-browsing-indicator-with-label,.private-browsing-indicator-with-label^) ^> label { display: none !important; }
 )>"FirefoxPortable\portable\chrome\userChrome.css"
 
 (@echo {"windows":[],"selectedWindow":0,"_closedWindows":[],"session":{},"scratchpads":[],"global":{}})>"FirefoxPortable\portable\sessionstore.js"
