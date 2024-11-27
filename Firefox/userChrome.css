@@ -67,3 +67,6 @@ menupopup > menuitem, menupopup > menu { padding-block:2px !important; }  /* Set
 
 /* 119 */
 #private-browsing-indicator-with-label > label {display: none;}
+
+/* 133 */
+#TabsToolbar :is(#private-browsing-indicator-with-label,.private-browsing-indicator-with-label) > label { display: none !important; }
