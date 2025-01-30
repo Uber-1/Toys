@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.4.7.2 [27.11.2024]
+@title Firefox Portable Creator - ver.4.7.3 [30.01.2025]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt
@@ -350,7 +350,7 @@
 @echo defaultPref^("extensions.getAddons.showPane", false^);
 @echo defaultPref^("extensions.htmlaboutaddons.discover.enabled", false^);
 @echo defaultPref^("extensions.htmlaboutaddons.recommendations.enabled", false^);
-@echo defaultPref^("extensions.manifestV3.enabled", false^);
+@echo // defaultPref^("extensions.manifestV3.enabled", false^);
 @echo defaultPref^("extensions.pendingOperations", false^);
 @echo defaultPref^("extensions.pocket.api", ""^);
 @echo defaultPref^("extensions.pocket.enabled", false^);
@@ -425,7 +425,7 @@
 @echo defaultPref^("media.webspeech.recognition.force_enable", false^);
 @echo defaultPref^("media.webspeech.synth.enabled", false^);
 @echo defaultPref^("media.wmf.deblacklisting-for-telemetry-in-gpu-process", false^);
-@echo defaultPref^("mousewheel.default.delta_multiplier_y", 450^);
+@echo defaultPref^("mousewheel.default.delta_multiplier_y", 400^);
 @echo // defaultPref^("mousewheel.min_line_scroll_amount", 5^);
 @echo defaultPref^("network.allow-experiments", false^);
 @echo defaultPref^("network.captive-portal-service.enabled", false^);
@@ -984,7 +984,7 @@
 @echo user_pref^("extensions.getAddons.showPane", false^);
 @echo user_pref^("extensions.htmlaboutaddons.discover.enabled", false^);
 @echo user_pref^("extensions.htmlaboutaddons.recommendations.enabled", false^);
-@echo user_pref^("extensions.manifestV3.enabled", false^);
+@echo // user_pref^("extensions.manifestV3.enabled", false^);
 @echo user_pref^("extensions.pendingOperations", false^);
 @echo user_pref^("extensions.pocket.api", ""^);
 @echo user_pref^("extensions.pocket.enabled", false^);
@@ -1059,7 +1059,7 @@
 @echo user_pref^("media.webspeech.recognition.force_enable", false^);
 @echo user_pref^("media.webspeech.synth.enabled", false^);
 @echo user_pref^("media.wmf.deblacklisting-for-telemetry-in-gpu-process", false^);
-@echo user_pref^("mousewheel.default.delta_multiplier_y", 450^);
+@echo user_pref^("mousewheel.default.delta_multiplier_y", 400^);
 @echo // user_pref^("mousewheel.min_line_scroll_amount", 5^);
 @echo user_pref^("network.allow-experiments", false^);
 @echo user_pref^("network.captive-portal-service.enabled", false^);
