@@ -36,7 +36,7 @@ Just save and run any script you wish.
 - [MsEdge 109 Downloader Unpacker](/BAT_SA/MsEdge109_DownloaderUnpacker-http.bat) - for MS Edge 109.x releases.
 - [MsEdge Downloader Unpacker](/BAT_SA/MsEdge_DownloaderUnpacker.bat) - for latest MS Edge release.
 - [Opera Portable Creator W7](/BAT_SA/OperaPortableCreator_W7.bat) - for Opera 95.x release + *version.dll (Chrome++ DLL)*.
-- [Opera One/GX Portable Creator](/BAT_SA/OperaGXPortableCreator.bat) - for latest Opera One/GX release + *version.dll (Chrome++ DLL)*.
+- [Opera One/GX Portable Creator](/BAT_SA/OperaGXPortableCreator.bat) - for latest Opera One/GX release.
 - [Supermium Portable Creator](/BAT_SA/SupermiumPortableCreator.cmd) - for latest Supermium release.
 - [Thorium Portable Creator exe](/BAT_SA/ThoriumPortableCreatorExe.cmd) - for latest Thorium exe release.
 - [Thorium Portable Creator zip](/BAT_SA/ThoriumPortableCreatorZip.cmd) - for latest Thorium zip release.
