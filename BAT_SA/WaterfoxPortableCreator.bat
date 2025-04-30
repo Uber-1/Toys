@@ -1,5 +1,5 @@
 @echo off
-@title Waterfox Portable Creator - ver.4.7.3 [30.01.2025]
+@title Waterfox Portable Creator - ver.4.7.4 [30.04.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLDL
@@ -10,7 +10,7 @@
 @GOTO MAKECONFIG
 :CURLDL
 @echo Downloading with CURL . . .
-@curl.exe -RL# "https://cdn1.waterfox.net/waterfox/releases/latest/windows" -e"https://cdn1.waterfox.net" -o "wfwin.exe.7z"
+@curl.exe -RL# "https://cdn1.waterfox.net/waterfox/releases/latest/windows" -e"https://cdn1.waterfox.net" -o "wfwin.exe.7z" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0" -H "Sec-GPC: 1"
 @curl.exe -RLO# "https://www.7-zip.org/a/7zr.exe"
 :MAKECONFIG
 
@@ -248,6 +248,7 @@
 @echo defaultPref^("browser.urlbar.suggest.topsites", false^);
 @echo defaultPref^("browser.urlbar.trimURLs", false^);
 @echo defaultPref^("browser.urlbar.update1", false^);
+@echo defaultPref^("browser.urlbar.weather.featureGate", false^);
 @echo defaultPref^("browser.vpn_promo.enabled", false^);
 @echo defaultPref^("camera.control.face_detection.enabled", false^);
 @echo defaultPref^("canvas.capturestream.enabled", false^);
@@ -882,6 +883,7 @@
 @echo user_pref^("browser.urlbar.suggest.topsites", false^);
 @echo user_pref^("browser.urlbar.trimURLs", false^);
 @echo user_pref^("browser.urlbar.update1", false^);
+@echo user_pref^("browser.urlbar.weather.featureGate", false^);
 @echo user_pref^("browser.vpn_promo.enabled", false^);
 @echo user_pref^("camera.control.face_detection.enabled", false^);
 @echo user_pref^("canvas.capturestream.enabled", false^);

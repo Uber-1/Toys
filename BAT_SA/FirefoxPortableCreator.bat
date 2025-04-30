@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.4.7.3 [30.01.2025]
+@title Firefox Portable Creator - ver.4.7.4 [30.04.2025]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt
@@ -256,6 +256,7 @@
 @echo defaultPref^("browser.urlbar.suggest.topsites", false^);
 @echo defaultPref^("browser.urlbar.trimURLs", false^);
 @echo defaultPref^("browser.urlbar.update1", false^);
+@echo defaultPref^("browser.urlbar.weather.featureGate", false^);
 @echo defaultPref^("browser.vpn_promo.enabled", false^);
 @echo defaultPref^("camera.control.face_detection.enabled", false^);
 @echo defaultPref^("canvas.capturestream.enabled", false^);
@@ -890,6 +891,7 @@
 @echo user_pref^("browser.urlbar.suggest.topsites", false^);
 @echo user_pref^("browser.urlbar.trimURLs", false^);
 @echo user_pref^("browser.urlbar.update1", false^);
+@echo user_pref^("browser.urlbar.weather.featureGate", false^);
 @echo user_pref^("browser.vpn_promo.enabled", false^);
 @echo user_pref^("camera.control.face_detection.enabled", false^);
 @echo user_pref^("canvas.capturestream.enabled", false^);
