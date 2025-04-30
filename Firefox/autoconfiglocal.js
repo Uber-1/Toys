@@ -235,6 +235,7 @@ defaultPref("browser.urlbar.suggest.searches", false);
 defaultPref("browser.urlbar.suggest.topsites", false);
 defaultPref("browser.urlbar.trimURLs", false);
 defaultPref("browser.urlbar.update1", false);
+defaultPref("browser.urlbar.weather.featureGate", false);
 defaultPref("browser.vpn_promo.enabled", false);
 defaultPref("camera.control.face_detection.enabled", false);
 defaultPref("canvas.capturestream.enabled", false);
