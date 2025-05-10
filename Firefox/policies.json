@@ -1,1 +1,1 @@
-{"policies":{"DisableAppUpdate":true}}
+{"policies":{"DisableAppUpdate":true,"DisableTelemetry":true}}
