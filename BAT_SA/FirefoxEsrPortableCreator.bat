@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.4.7.4 [30.04.2025]
+@title Firefox Portable Creator - ver.5.0 [10.05.2025]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest-esr/README.txt
@@ -564,7 +564,7 @@
 @echo app.partner.mozilla-EMEfree="mozilla-EMEfree"
 )>"FirefoxPortable\core\distribution\distribution.ini"
 
-(@echo {"policies":{"DisableAppUpdate":true}})>"FirefoxPortable\core\distribution\policies.json"
+(@echo {"policies":{"DisableAppUpdate":true,"DisableTelemetry":true}})>"FirefoxPortable\core\distribution\policies.json"
 
 @md "FirefoxPortable\portable"
 @md "FirefoxPortable\portable\chrome"

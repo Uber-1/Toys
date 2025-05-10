@@ -1,5 +1,5 @@
 @echo off
-@title Vivaldi downloader + configer mini ^| ver.4.0 [29.02.2024]
+@title Vivaldi downloader + configer mini ^| ver.5.0.1 [10.05.2025]
 @cd /d "%~dp0"
 @echo.
 @echo Release channel:
@@ -12,14 +12,16 @@
 @if not exist "7zr.exe" (@color 0C &@echo DOWNLOAD ERROR: "7zr.exe" &@pause > nul &@exit)
 
 @if /i "%ViChan%"=="2" (@GOTO DLSNA)
-@for /f eol^=-^ tokens^=1-26^ delims^=^?^" %%a in ('@curl.exe -lsL "https://vivaldi.com/download" ^| 2^>nul FINDSTR /IRC:"vivaldi-versions.js"') do (@set VIVJS=%%c)
-@for /f eol^=-^ tokens^=1-26^ delims^=^" %%a in ('@curl.exe -lsL "https://vivaldi.com/wp-content/vivaldi-versions.js?%VIVJS%" ^| 2^>nul FINDSTR /IRC:"version"') do (@set VIVER=%%d)
+:: @for /f eol^=-^ tokens^=1-26^ delims^=^?^" %%a in ('@curl.exe -lsL "https://vivaldi.com/download" ^| 2^>nul FINDSTR /IRC:"vivaldi-versions.js"') do (@set VIVJS=%%c)
+:: @for /f eol^=-^ tokens^=1-26^ delims^=^" %%a in ('@curl.exe -lsL "https://vivaldi.com/wp-content/vivaldi-versions.js?%VIVJS%" ^| 2^>nul FINDSTR /IRC:"version"') do (@set VIVER=%%d)
+@for /f eol^=-^ tokens^=1-26^ delims^=^" %%a in ('@curl.exe -lsL "https://update.vivaldi.com/update/1.0/public/appcast.xml"     ^| 2^>nul FINDSTR /IRC:".exe"') do (@set VIVER=%%d)
+::@for /f eol^=-^ tokens^=1-26^ delims^=^" %%a in ('@curl.exe -lsL "https://update.vivaldi.com/update/1.0/public/appcast.x64.xml" ^| 2^>nul FINDSTR /IRC:".exe"') do (@set VIVER=%%d)
 @echo.Version: "%VIVER%"
 @curl.exe -RLO# "https://downloads.vivaldi.com/stable/Vivaldi.%VIVER%.exe"
 @curl.exe -RLO# "https://downloads.vivaldi.com/stable/Vivaldi.%VIVER%.x64.exe"
 @GOTO DLFIN
 :DLSNA
-@for /f eol^=-^ tokens^=1-26^ delims^=./^<^>^" %%a in ('@curl.exe -lsL "https://vivaldi.com/feed/" ^| 2^>nul FINDSTR /IRC:"Vivaldi.*.exe"') do (@if NOT DEFINED VIVER (@set VIVER=%%i.%%j.%%k.%%l))
+@for /f "eol=- tokens=1-26 delims=.:" %%a in ('@curl.exe -lsL "https://vivaldi.com/feed/" ^| 2^>nul FINDSTR /IRC:"Vivaldi.*\.exe"') do (@if NOT DEFINED VIVER (@set VIVER=%%e.%%f.%%g.%%h))
 @echo.Version: "%VIVER%"
 @curl.exe -RLO# "https://downloads.vivaldi.com/snapshot/Vivaldi.%VIVER%.exe"
 @curl.exe -RLO# "https://downloads.vivaldi.com/snapshot/Vivaldi.%VIVER%.x64.exe"

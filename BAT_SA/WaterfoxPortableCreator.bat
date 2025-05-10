@@ -1,5 +1,5 @@
 @echo off
-@title Waterfox Portable Creator - ver.4.7.4 [30.04.2025]
+@title Waterfox Portable Creator - ver.5.0 [10.05.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLDL
@@ -556,7 +556,7 @@
 @echo app.partner.mozilla-EMEfree="mozilla-EMEfree"
 )>"WaterfoxPortable\core\distribution\distribution.ini"
 
-(@echo {"policies":{"DisableAppUpdate":true}})>"WaterfoxPortable\core\distribution\policies.json"
+(@echo {"policies":{"DisableAppUpdate":true,"DisableTelemetry":true}})>"WaterfoxPortable\core\distribution\policies.json"
 
 @md "WaterfoxPortable\portable"
 @md "WaterfoxPortable\portable\chrome"

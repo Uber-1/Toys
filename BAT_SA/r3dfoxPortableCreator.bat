@@ -1,5 +1,5 @@
 @echo off
-@title r3dfox Portable Creator - ver.4.7.4 [30.04.2025]
+@title r3dfox Portable Creator - ver.5.0 [10.05.2025]
 @cd /d "%~dp0"
 
 @if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
@@ -568,7 +568,7 @@
 @echo app.partner.mozilla-EMEfree="mozilla-EMEfree"
 )>"r3dfoxPortable\core\distribution\distribution.ini"
 
-(@echo {"policies":{"DisableAppUpdate":true}})>"r3dfoxPortable\core\distribution\policies.json"
+(@echo {"policies":{"DisableAppUpdate":true,"DisableTelemetry":true}})>"r3dfoxPortable\core\distribution\policies.json"
 
 @md "r3dfoxPortable\portable"
 @md "r3dfoxPortable\portable\chrome"
