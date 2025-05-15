@@ -1,5 +1,5 @@
 @echo off
-@title Vivaldi downloader + uber1configer ^| ver.1.0.1 [18.04.2024]
+@title Vivaldi downloader + uber1configer ^| ver.1.0.2 [15.05.2025]
 @cd /d "%~dp0"
 @echo.
 @echo Release channel:
@@ -13,12 +13,14 @@
 
 @if /i "%ViChan%"=="2" (@GOTO DLSNA)
 @set ViChan=stable
-@for /f eol^=-^ tokens^=1-26^ delims^=^'^?^" %%a in ('@curl.exe -lsL "https://vivaldi.com/download" ^| 2^>nul FINDSTR /IRC:"vivaldi-versions.js"') do (@set VIVJS=%%e)
-@for /f eol^=-^ tokens^=1-26^ delims^=^" %%a in ('@curl.exe -lsL "https://vivaldi.com/wp-content/vivaldi-versions.js?%VIVJS%" ^| 2^>nul FINDSTR /IRC:"version"') do (@set VIVER=%%d)
+:: @for /f eol^=-^ tokens^=1-26^ delims^=^?^" %%a in ('@curl.exe -lsL "https://vivaldi.com/download" ^| 2^>nul FINDSTR /IRC:"vivaldi-versions.js"') do (@set VIVJS=%%c)
+:: @for /f eol^=-^ tokens^=1-26^ delims^=^" %%a in ('@curl.exe -lsL "https://vivaldi.com/wp-content/vivaldi-versions.js?%VIVJS%" ^| 2^>nul FINDSTR /IRC:"version"') do (@set VIVER=%%d)
+@for /f eol^=-^ tokens^=1-26^ delims^=^" %%a in ('@curl.exe -lsL "https://update.vivaldi.com/update/1.0/public/appcast.xml"     ^| 2^>nul FINDSTR /IRC:".exe"') do (@set VIVER=%%d)
+::@for /f eol^=-^ tokens^=1-26^ delims^=^" %%a in ('@curl.exe -lsL "https://update.vivaldi.com/update/1.0/public/appcast.x64.xml" ^| 2^>nul FINDSTR /IRC:".exe"') do (@set VIVER=%%d)
 @GOTO DLFIN
 :DLSNA
 @set ViChan=snapshot
-@for /f "eol=- tokens=1-26 delims=.:" %%a in ('@curl.exe -lsL "https://vivaldi.com/feed/" ^| 2^>nul FINDSTR /IRC:"Vivaldi.*.exe"') do (@if NOT DEFINED VIVER (@set VIVER=%%e.%%f.%%g.%%h))
+@for /f "eol=- tokens=1-26 delims=.:" %%a in ('@curl.exe -lsL "https://vivaldi.com/feed/" ^| 2^>nul FINDSTR /IRC:"Vivaldi.*\.exe"') do (@if NOT DEFINED VIVER (@set VIVER=%%e.%%f.%%g.%%h))
 :DLFIN
 @echo.Version: "%VIVER%" %ViChan%
 @curl.exe -RLO# "https://downloads.vivaldi.com/%ViChan%/Vivaldi.%VIVER%.exe"

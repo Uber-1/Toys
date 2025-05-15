@@ -1,5 +1,5 @@
 @echo off
-@title Waterfox Portable Creator + uber1configer ^| ver.1.0.1 [08.10.2024]
+@title Waterfox Portable Creator + uber1configer ^| ver.1.0.2 [15.05.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLDL
@@ -10,7 +10,7 @@
 @GOTO MAKECONFIG
 :CURLDL
 @echo Downloading with CURL . . .
-@curl.exe -RL# "https://cdn1.waterfox.net/waterfox/releases/latest/windows" -e"https://cdn1.waterfox.net" -o "wfwin.exe.7z"
+@curl.exe -RL# "https://cdn1.waterfox.net/waterfox/releases/latest/windows" -e"https://cdn1.waterfox.net" -o "wfwin.exe.7z" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0" -H "Sec-GPC: 1"
 @curl.exe -RLO# "https://www.7-zip.org/a/7zr.exe"
 :MAKECONFIG
 
