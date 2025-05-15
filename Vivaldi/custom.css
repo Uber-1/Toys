@@ -14,12 +14,12 @@
 .toolbar-extensions { position:absolute !important; transform:translate(-100%, 0); /* background-color:var(--colorAccentBg) !important; */ transition:background-color 0.7s ease-out; left:calc(100vw - 173px) !important; height:30px !important; right:unset !important; top:0px; }
 
 /* tabs position and look */
-#tabs-container:not(.none).top { padding-left:calc(31vw + 173px + 35px) !important; padding-right:173px !important; padding-top:0px !important; margin-top:0px; min-height:30px; transition:0.3s; }
+#tabs-container:not(.none).top { padding-left:calc(30vw + 173px + 35px + 35px) !important; padding-right:173px !important; padding-top:0px !important; margin-top:0px; min-height:30px; transition:0.3s; }
 .tab-position .tab { display:flex; flex:1 1 100%; flex-flow:column; overflow:hidden; font-size:11px; -webkit-user-select:none; -webkit-user-drag:element; }
 
 /* main bar and url bar placement */
 .win.normal .toolbar-mainbar { left:unset; right:unset; border-radius:var(--radiusHalf)!important; }
-.UrlBar-AddressField { width:31vw !important; top:0px !important; }
+.UrlBar-AddressField { width:30vw !important; top:0px !important; }
 
 /* hide unwanted text */
 .UrlBar-PrivateWindowIndicator { font-size:0; padding:0 6px 0 6px; }
