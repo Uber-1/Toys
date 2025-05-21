@@ -371,6 +371,8 @@ defaultPref("lightweightThemes.update.enabled", false);
 defaultPref("loop.enabled", false);
 defaultPref("loop.feedback.formURL", "");
 defaultPref("loop.gettingStarted.url", "");
+defaultPref("media.autoplay.blocking_policy", 2);
+defaultPref("media.autoplay.default", 5);
 defaultPref("media.autoplay.enabled", false);
 defaultPref("media.block-autoplay-until-in-foreground", true);
 defaultPref("media.block-play-until-visible", true);
