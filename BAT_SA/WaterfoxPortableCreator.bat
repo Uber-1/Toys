@@ -1,5 +1,5 @@
 @echo off
-@title Waterfox Portable Creator - ver.5.0 [10.05.2025]
+@title Waterfox Portable Creator - ver.5.0.1 [21.05.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLDL
@@ -384,6 +384,8 @@
 @echo defaultPref^("loop.enabled", false^);
 @echo defaultPref^("loop.feedback.formURL", ""^);
 @echo defaultPref^("loop.gettingStarted.url", ""^);
+@echo defaultPref^("media.autoplay.blocking_policy", 2^);
+@echo defaultPref^("media.autoplay.default", 5^);
 @echo defaultPref^("media.autoplay.enabled", false^);
 @echo defaultPref^("media.block-autoplay-until-in-foreground", true^);
 @echo defaultPref^("media.block-play-until-visible", true^);
@@ -1019,6 +1021,8 @@
 @echo user_pref^("loop.enabled", false^);
 @echo user_pref^("loop.feedback.formURL", ""^);
 @echo user_pref^("loop.gettingStarted.url", ""^);
+@echo user_pref^("media.autoplay.blocking_policy", 2^);
+@echo user_pref^("media.autoplay.default", 5^);
 @echo user_pref^("media.autoplay.enabled", false^);
 @echo user_pref^("media.block-autoplay-until-in-foreground", true^);
 @echo user_pref^("media.block-play-until-visible", true^);
