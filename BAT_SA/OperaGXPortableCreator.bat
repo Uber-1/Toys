@@ -1,5 +1,5 @@
 @echo off
-@title Opera Portable downloader + configer ^| ver.5.0.1 [15.05.2025]
+@title Opera Portable downloader + configer ^| ver.5.0.1.2 [26.05.2025]
 @cd /d "%~dp0"
 
 @echo.
@@ -36,7 +36,6 @@
 @del /f /q "7zr.exe" "json.b64" "opera.7z" "opcosh.b64" "continue_shopping_json.7z" "2.7z" > NUL
 
 @echo Config...
-@rename "OperaPortable\opera_gx_splash.exe" "opera_gx_splash.exe.~disabled" > NUL
 @type NUL>"OperaPortable\debug.log" &&@attrib +R "OperaPortable\debug.log"
 @md OperaPortable\profile\data
 @set cr_loca1={"browser":{"enabled_labs_experiments":["cashback-extension-download@2","cashback@2","enable-parallel-downloading@1","enable-windows-gaming-input-data-fetcher@2","game-maker-studio-integration@2","gx-live-wallpapers-metrics@2","ignore-gpu-blocklist","opera-account-popup@2","pinboard@2","smooth-scrolling@2","turn-off-streaming-media-caching-always@1","yandex-zen-news@2"],"flags":{"addons-detailed-errors":1,"save-page-as-mhtml":-1,"smooth-scrolling":2}},"gxx_flags":{"enabled":false,"migrated":true},"hardware_acceleration_mode_previous":true,"location":{"country":"US","country_from_server":"unknown"},"ui":{"tab_menu":{"open_tabs_expanded":true,"recently_closed_expanded":true}},"user_experience_metrics":{"reporting_enabled":false}}
@@ -53,7 +52,8 @@
 @echo %cr_pref5%)>"OperaPortable\profile\data\Preferences"
 (@echo {"single_profile": true})>"OperaPortable\installer_prefs.json"
 (@echo {"_all_users":false,"copy_only":true,"files":[""],"path":"","product":"Opera","registry":{},"root_files":[],"version":""})>"OperaPortable\installation_status.json"
-(@echo @del /f /s ssdfp* &@echo @start Opera.exe --user-data-dir=profile\Data --disable-gpu-shader-disk-cache --disk-cache-dir=nul --disk-cache-size=1 --disable-background-networking --disable-component-update --no-default-browser-check)>"OperaPortable\Launcher.bat"
+(@echo @del /f /s ssdfp* &@echo @start Opera.exe --user-data-dir=profile\Data --disable-gpu-shader-disk-cache --disk-cache-dir=nul --disk-cache-size=1 --disable-background-networking --disable-component-update --no-default-browser-check --show-component-extension-options --disable-breakpad --disable-crash-reporter)>"OperaPortable\Launcher.bat"
+(@echo @cd /d "%%~dp0"&@echo @del /f /s ssdfp* ^> NUL&@echo @powershell -Command " (gc '%%~dp0profile\data\Local State') -replace '(?<=gxx_flags\x22:{\x22enabled\x22:)true','false' | sc '%%~dp0profile\data\Local State' "&@echo @start Opera.exe --user-data-dir=profile\Data --disable-gpu-shader-disk-cache --disk-cache-dir=nul --disk-cache-size=1 --disable-background-networking --disable-component-update --no-default-browser-check --show-component-extension-options --disable-breakpad --disable-crash-reporter)>"OperaPortable\LauncherGX.bat"
 
 @echo Done!
 @pause > nul
