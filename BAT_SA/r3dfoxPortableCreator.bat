@@ -1,28 +1,44 @@
 @echo off
-@title r3dfox Portable Creator - ver.5.0.1 [21.05.2025]
+@title r3dfox Portable Creator - ver.5.0.1.1 [04.06.2025]
 @cd /d "%~dp0"
 
-@if not exist "curl.exe" (@if not exist "%SystemRoot%\SYSTEM32\curl.exe" (
+@if exist "curl.exe" @GOTO CURLCH1
+@if exist "%SystemRoot%\SYSTEM32\curl.exe" @GOTO CURLCH1
 @echo Checking version with powershell . . .
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Eclipse-Community/r3dfox/releases/latest', 'latest')"
-)) else (
+@GOTO DONECH1
+:CURLCH1
 @echo Checking version with CURL . . .
 @curl.exe -RL# "https://github.com/Eclipse-Community/r3dfox/releases/latest" -o "latest"
-)
+:DONECH1
 
-@for /f "eol=- tokens=1-26 delims=v " %%a in ('@type "latest" ^| @FINDSTR /IRC:"title.*.Release.v.*.r3dfox"') do (@if NOT DEFINED r3dfoxLatest (@set r3dfoxLatest=%%c))
-@echo r3dfox Latest Version: [%r3dfoxLatest%]
+@for /f eol^=-^ tokens^=1-26^ delims^=^/^" %%a in ('@type "latest" ^| @FINDSTR /IRC:"expanded_assets"') do (@set r3dfoxLatestEA=%%l)
+@echo r3dfox Release Version: [%r3dfoxLatestEA%]
 @del "latest" /q
+
+@if exist "curl.exe" @GOTO CURLCH2
+@if exist "%SystemRoot%\SYSTEM32\curl.exe" @GOTO CURLCH2
+@echo Checking version with powershell . . .
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Eclipse-Community/r3dfox/releases/expanded_assets/%r3dfoxLatestEA%', 'expanded_assets')"
+@GOTO DONECH2
+:CURLCH2
+@echo Checking version with CURL . . .
+@curl.exe -RL# "https://github.com/Eclipse-Community/r3dfox/releases/expanded_assets/%r3dfoxLatestEA%" -o "expanded_assets"
+:DONECH2
+
+@for /f eol^=-^ tokens^=1-26^ delims^=^/^" %%a in ('@type "expanded_assets" ^| @FINDSTR /IRC:"releases.download.*win32.installer.exe"') do (@set r3dfoxLatestEXE=%%g)
+@echo r3dfox Package Version: [%r3dfoxLatestEXE%]
+@del "expanded_assets" /q
 
 @if exist "curl.exe" @GOTO CURLDL
 @if exist "%SystemRoot%\SYSTEM32\curl.exe" @GOTO CURLDL
 @echo Downloading with powershell . . .
-@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Eclipse-Community/r3dfox/releases/download/%r3dfoxLatest%/r3dfox-%r3dfoxLatest%.en-US.win32.installer.exe', 'r3dfwin.exec')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Eclipse-Community/r3dfox/releases/download/%r3dfoxLatestEA%/%r3dfoxLatestEXE%', 'r3dfwin.exec')"
 @powershell -Command "(New-Object Net.WebClient).DownloadFile('https://www.7-zip.org/a/7zr.exe', '7zr.exe')"
 @GOTO MAKECONFIG
 :CURLDL
 @echo Downloading with CURL . . .
-@curl.exe -RL# "https://github.com/Eclipse-Community/r3dfox/releases/download/%r3dfoxLatest%/r3dfox-%r3dfoxLatest%.en-US.win32.installer.exe" -o "r3dfwin.exec"
+@curl.exe -RL# "https://github.com/Eclipse-Community/r3dfox/releases/download/%r3dfoxLatestEA%/%r3dfoxLatestEXE%" -o "r3dfwin.exec"
 @curl.exe -RLO# "https://www.7-zip.org/a/7zr.exe"
 :MAKECONFIG
 
@@ -575,87 +591,87 @@
 @md "r3dfoxPortable\portable"
 @md "r3dfoxPortable\portable\chrome"
 
-(
-@echo.@-moz-document domain^("youtube.com"^) {:root {scrollbar-width: none !important; /* thin/auto/none */} }
-@echo.@-moz-document url^("about:privatebrowsing"^) { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
-@echo.:root {scrollbar-color: #ff9900 transparent !important; }
-@echo @-moz-document domain^("youtube.com"^) { ytd-thumbnail[size] a.ytd-thumbnail, ytd-thumbnail[size]:before, ytd-watch-flexy[default-layout] #ytd-player.ytd-watch-flexy, .player-container.ytd-reel-video-renderer, ytd-player.ytd-shorts, .ytp-tooltip.ytp-preview, .ytp-tooltip.ytp-preview .ytp-tooltip-bg { border-radius: 0 !important; } }
-)>"r3dfoxPortable\portable\chrome\userContent.css"
+:: (
+:: @echo.@-moz-document domain^("youtube.com"^) {:root {scrollbar-width: none !important; /* thin/auto/none */} }
+:: @echo.@-moz-document url^("about:privatebrowsing"^) { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
+:: @echo.:root {scrollbar-color: #ff9900 transparent !important; }
+:: @echo @-moz-document domain^("youtube.com"^) { ytd-thumbnail[size] a.ytd-thumbnail, ytd-thumbnail[size]:before, ytd-watch-flexy[default-layout] #ytd-player.ytd-watch-flexy, .player-container.ytd-reel-video-renderer, ytd-player.ytd-shorts, .ytp-tooltip.ytp-preview, .ytp-tooltip.ytp-preview .ytp-tooltip-bg { border-radius: 0 !important; } }
+:: )>"r3dfoxPortable\portable\chrome\userContent.css"
 
-(
-@echo./* Left menu */
-@echo.#PanelUI-button { -moz-box-ordinal-group:0 !important ; order:-1 !important ; margin-inline-start:0px !important ; margin-inline-end:0px !important ; border-inline-start:none !important ; border-inline-end:0px solid !important ; }
-@echo..cui-widget-panel, #appMenu-popup { margin-left:1em !important; }
-@echo.
-@echo./* Tab's fonts */
-@echo.#urlbar { font-family:Tahoma !important ; font-size:8pt !important ; }
-@echo.#tabbrowser-tabs .tab-text{ font-family:Tahoma !important ; font-size:8pt !important ; font-weight:none !important ; }
-@echo.
-@echo./* ======================== */
-@echo./* keyfox-main\userChrome.css */
-@echo.
-@echo./*Basic Settings*/
-@echo.:root { --navbarWidth:42vw ; --animationSpeed:0.15s ; } /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window. */
-@echo.#TabsToolbar { margin-left:var^(--navbarWidth^) !important ; }
-@echo.#nav-bar { margin-right:calc^(100vw - var^(--navbarWidth^)^) !important ; }
-@echo.#urlbar-container { min-width:0px !important ; }
-@echo.#urlbar-container { width:calc^(80px + 2 * var^(--toolbarbutton-inner-padding^)^) !important; }
-@echo.:root[uidensity="compact"] #nav-bar { margin-top:-31px !important ; height:31px !important ; }
-@echo.:root:not^([uidensity="compact"]^):not^([uidensity="touch"]^) #nav-bar { margin-top:-44px !important ; height:44px !important ; }
-@echo.:root[uidensity="touch"] #nav-bar { margin-top:-49px !important ; height:49px !important ; }
-@echo.
-@echo./* Simplifying interface */
-@echo.#nav-bar { background:none !important ; box-shadow:none !important ;}
-@echo.#navigator-toolbox { border:none !important ;}
-@echo..titlebar-spacer { display:none !important ;}
-@echo.#urlbar-background { border:none !important ;}
-@echo./* #urlbar:not^(:hover^):not^([breakout][breakout-extend]^) ^> #urlbar-background { box-shadow:none !important ; background:none !important } */
-@echo.
-@echo./* Element Hiding stuff */
-@echo..urlbar-icon, #userContext-indicator, #userContext-label { fill:transparent !important ; background:transparent !important ; color:transparent !important ; }
-@echo.#urlbar:hover .urlbar-icon, #urlbar:active .urlbar-icon, #urlbar[focused] .urlbar-icon { fill:var^(--toolbar-color^) !important ;}
-@echo./* ======================== */
-@echo.
-@echo./* Tab's corners */
-@echo.@-moz-document url^("chrome://browser/content/browser.xhtml"^) { :root {
-@echo. --tab-block-margin:0px !important ;
-@echo. --tab-border-radius:0px !important ;
-@echo. --toolbarbutton-outer-padding:1px !important ;
-@echo. --toolbarbutton-inner-padding:4px !important ;
-@echo. --toolbar-start-end-padding:1px !important ;
-@echo. --bookmark-block-padding:1px !important ;
-@echo. --urlbar-min-height:24px !important ;
-@echo. --urlbar-icon-padding:3px !important ;
-@echo.} }
-@echo.
-@echo./* Overlink */
-@echo.#statuspanel[type="overLink"] { opacity:90%% !important ; }
-@echo.#statuspanel-label { color:black !important; }
-@echo.@media ^(-moz-windows-default-theme^)             {  #statuspanel-label { color:black !important; }}
-@echo.@media ^(-moz-content-prefers-color-scheme:dark^) {  #statuspanel-label { color:white !important; }}
-@echo.
-@echo./* #tabbrowser-tabpanels { background-color:menu !important; } */
-@echo.#tabbrowser-tabpanels { background-color: white !important; }
-@echo.
-@echo./* ======================== */
-@echo./*  Alltabs button  */
-@echo.#TabsToolbar-customization-target {counter-reset: tabCount}.tabbrowser-tab {counter-increment: tabCount}
-@echo.#alltabs-button^>.toolbarbutton-badge-stack^>.toolbarbutton-icon {list-style-image: url^("data:image/svg+xml,%%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%%3E%%3Ctitle%%3EVetro%%3C/title%%3E%%3Cpath transform='translate(49,-60)' d='m-29 78.888-7.0703-7.0703 0.70703-0.70703 6.3633 6.3633 6.3633-6.3633 0.70703 0.70703-6.3633 6.3633z' fill='currentColor' style='paint-order:stroke fill markers'/%%3E%%3C/svg%%3E"^); overflow: hidden!important; padding: 0!important; border: 0!important; width: 40px!important; height: calc^(100%% + 1px^)!important; margin: 0 -2px 0 0!important; transform: translate^(20%%,15%%^); padding: 0 3px}
-@echo.#alltabs-button^>.toolbarbutton-badge-stack {position: relative!important; border-radius: 0!important; padding: 0!important; border: 0!important; height: calc^(100%% + 1px^)!important; width: 56px!important; margin: 0-2px 0 0!important}
-@echo.#alltabs-button^>.toolbarbutton-badge-stack::before {content: counter^(tabCount^); filter:contrast^(500%%^)grayscale^(100%%^); color: currentColor !important; position: absolute; bottom: 25%%; left: 50%%; transform: translate^(-50%%,-30%%^); padding: 0 3px}
-@echo./* ======================== */
-@echo.
-@echo./* 117 */
-@echo.menupopup, .menupopup-arrowscrollbox { border-radius:0px !important; }
-@echo.menupopup ^> menuitem, menupopup ^> menu { padding-block:2px !important; }  /* Set spacing here 0-4px */
-@echo.:root { --arrowpanel-menuitem-padding: 0px 4px !important; } /* Options menu spacing */
-@echo.
-@echo./* 119 */
-@echo.#private-browsing-indicator-with-label ^> label {display: none;}
-@echo.
-@echo./* 133 */
-@echo.#TabsToolbar :is^(#private-browsing-indicator-with-label,.private-browsing-indicator-with-label^) ^> label { display: none !important; }
-)>"r3dfoxPortable\portable\chrome\userChrome.css"
+:: (
+:: @echo./* Left menu */
+:: @echo.#PanelUI-button { -moz-box-ordinal-group:0 !important ; order:-1 !important ; margin-inline-start:0px !important ; margin-inline-end:0px !important ; border-inline-start:none !important ; border-inline-end:0px solid !important ; }
+:: @echo..cui-widget-panel, #appMenu-popup { margin-left:1em !important; }
+:: @echo.
+:: @echo./* Tab's fonts */
+:: @echo.#urlbar { font-family:Tahoma !important ; font-size:8pt !important ; }
+:: @echo.#tabbrowser-tabs .tab-text{ font-family:Tahoma !important ; font-size:8pt !important ; font-weight:none !important ; }
+:: @echo.
+:: @echo./* ======================== */
+:: @echo./* keyfox-main\userChrome.css */
+:: @echo.
+:: @echo./*Basic Settings*/
+:: @echo.:root { --navbarWidth:42vw ; --animationSpeed:0.15s ; } /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window. */
+:: @echo.#TabsToolbar { margin-left:var^(--navbarWidth^) !important ; }
+:: @echo.#nav-bar { margin-right:calc^(100vw - var^(--navbarWidth^)^) !important ; }
+:: @echo.#urlbar-container { min-width:0px !important ; }
+:: @echo.#urlbar-container { width:calc^(80px + 2 * var^(--toolbarbutton-inner-padding^)^) !important; }
+:: @echo.:root[uidensity="compact"] #nav-bar { margin-top:-31px !important ; height:31px !important ; }
+:: @echo.:root:not^([uidensity="compact"]^):not^([uidensity="touch"]^) #nav-bar { margin-top:-44px !important ; height:44px !important ; }
+:: @echo.:root[uidensity="touch"] #nav-bar { margin-top:-49px !important ; height:49px !important ; }
+:: @echo.
+:: @echo./* Simplifying interface */
+:: @echo.#nav-bar { background:none !important ; box-shadow:none !important ;}
+:: @echo.#navigator-toolbox { border:none !important ;}
+:: @echo..titlebar-spacer { display:none !important ;}
+:: @echo.#urlbar-background { border:none !important ;}
+:: @echo./* #urlbar:not^(:hover^):not^([breakout][breakout-extend]^) ^> #urlbar-background { box-shadow:none !important ; background:none !important } */
+:: @echo.
+:: @echo./* Element Hiding stuff */
+:: @echo..urlbar-icon, #userContext-indicator, #userContext-label { fill:transparent !important ; background:transparent !important ; color:transparent !important ; }
+:: @echo.#urlbar:hover .urlbar-icon, #urlbar:active .urlbar-icon, #urlbar[focused] .urlbar-icon { fill:var^(--toolbar-color^) !important ;}
+:: @echo./* ======================== */
+:: @echo.
+:: @echo./* Tab's corners */
+:: @echo.@-moz-document url^("chrome://browser/content/browser.xhtml"^) { :root {
+:: @echo. --tab-block-margin:0px !important ;
+:: @echo. --tab-border-radius:0px !important ;
+:: @echo. --toolbarbutton-outer-padding:1px !important ;
+:: @echo. --toolbarbutton-inner-padding:4px !important ;
+:: @echo. --toolbar-start-end-padding:1px !important ;
+:: @echo. --bookmark-block-padding:1px !important ;
+:: @echo. --urlbar-min-height:24px !important ;
+:: @echo. --urlbar-icon-padding:3px !important ;
+:: @echo.} }
+:: @echo.
+:: @echo./* Overlink */
+:: @echo.#statuspanel[type="overLink"] { opacity:90%% !important ; }
+:: @echo.#statuspanel-label { color:black !important; }
+:: @echo.@media ^(-moz-windows-default-theme^)             {  #statuspanel-label { color:black !important; }}
+:: @echo.@media ^(-moz-content-prefers-color-scheme:dark^) {  #statuspanel-label { color:white !important; }}
+:: @echo.
+:: @echo./* #tabbrowser-tabpanels { background-color:menu !important; } */
+:: @echo.#tabbrowser-tabpanels { background-color: white !important; }
+:: @echo.
+:: @echo./* ======================== */
+:: @echo./*  Alltabs button  */
+:: @echo.#TabsToolbar-customization-target {counter-reset: tabCount}.tabbrowser-tab {counter-increment: tabCount}
+:: @echo.#alltabs-button^>.toolbarbutton-badge-stack^>.toolbarbutton-icon {list-style-image: url^("data:image/svg+xml,%%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%%3E%%3Ctitle%%3EVetro%%3C/title%%3E%%3Cpath transform='translate(49,-60)' d='m-29 78.888-7.0703-7.0703 0.70703-0.70703 6.3633 6.3633 6.3633-6.3633 0.70703 0.70703-6.3633 6.3633z' fill='currentColor' style='paint-order:stroke fill markers'/%%3E%%3C/svg%%3E"^); overflow: hidden!important; padding: 0!important; border: 0!important; width: 40px!important; height: calc^(100%% + 1px^)!important; margin: 0 -2px 0 0!important; transform: translate^(20%%,15%%^); padding: 0 3px}
+:: @echo.#alltabs-button^>.toolbarbutton-badge-stack {position: relative!important; border-radius: 0!important; padding: 0!important; border: 0!important; height: calc^(100%% + 1px^)!important; width: 56px!important; margin: 0-2px 0 0!important}
+:: @echo.#alltabs-button^>.toolbarbutton-badge-stack::before {content: counter^(tabCount^); filter:contrast^(500%%^)grayscale^(100%%^); color: currentColor !important; position: absolute; bottom: 25%%; left: 50%%; transform: translate^(-50%%,-30%%^); padding: 0 3px}
+:: @echo./* ======================== */
+:: @echo.
+:: @echo./* 117 */
+:: @echo.menupopup, .menupopup-arrowscrollbox { border-radius:0px !important; }
+:: @echo.menupopup ^> menuitem, menupopup ^> menu { padding-block:2px !important; }  /* Set spacing here 0-4px */
+:: @echo.:root { --arrowpanel-menuitem-padding: 0px 4px !important; } /* Options menu spacing */
+:: @echo.
+:: @echo./* 119 */
+:: @echo.#private-browsing-indicator-with-label ^> label {display: none;}
+:: @echo.
+:: @echo./* 133 */
+:: @echo.#TabsToolbar :is^(#private-browsing-indicator-with-label,.private-browsing-indicator-with-label^) ^> label { display: none !important; }
+:: )>"r3dfoxPortable\portable\chrome\userChrome.css"
 
 (@echo {"windows":[],"selectedWindow":0,"_closedWindows":[],"session":{},"scratchpads":[],"global":{}})>"r3dfoxPortable\portable\sessionstore.js"
 
