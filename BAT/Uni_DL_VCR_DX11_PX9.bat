@@ -8,7 +8,7 @@
 @if /i "%1"=="0" @set UsePS=0
 @if /i "%1"=="1" @set UsePS=1
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 @echo+
 @echo Visual Studio 2005 (VC++ 8.0) SP1
@@ -29,7 +29,7 @@
 @if /i "%Version328%"=="6.0.2900.2180" (@rename "vcredist.x86-2005.exe" "vcredist.8.00.50727.6195.x86.exe")
 @if /i "%Version328%"=="6.0.2900.2180" (@rename "vcredist.x64-2005.exe" "vcredist.8.00.50727.6195.x64.exe")
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 @echo+
 @echo Visual Studio 2008 (VC++ 9.0) SP1
@@ -50,7 +50,7 @@
 @rename "vcredist.x86-2008.exe" "vcredist.%Version329%.x86.exe"
 @rename "vcredist.x64-2008.exe" "vcredist.%Version649%.x64.exe"
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 @echo+
 @echo Visual Studio 2010 (VC++ 10.0) SP1
@@ -71,7 +71,7 @@
 @rename "vcredist.x86-2010.exe" "vcredist.%Version3210%.x86.exe"
 @rename "vcredist.x64-2010.exe" "vcredist.%Version6410%.x64.exe"
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 @echo+
 @echo Visual Studio 2012 (VC++ 11.0) Update 4
@@ -92,7 +92,7 @@
 @rename "vcredist.x86-2012.exe" "vcredist.%Version3211%.x86.exe"
 @rename "vcredist.x64-2012.exe" "vcredist.%Version6411%.x64.exe"
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 @echo+
 @echo Visual Studio 2013 (VC++ 12.0)
@@ -123,7 +123,7 @@
 :: @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170'); $wc.DownloadFile('https://download.visualstudio.microsoft.com/download/pr/10912113/5da66ddebb0ad32ebd4b922fd82e8e25/vcredist_x86.exe', 'vcredist.12.0.40664.0.x86.exe')"
 :: )
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 @echo+
 @echo Visual Studio 2015, 2017, 2019, 2022
@@ -189,7 +189,7 @@
 @rename "vcredist.x86-2015-2017-2019-2022.exe" "vcredist.%Version3214_17%.x86.exe"
 @rename "vcredist.x64-2015-2017-2019-2022.exe" "vcredist.%Version6414_17%.x64.exe"
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 (
 @echo f4d74643a0e117ea80b2c7ebcd908a6dd26aa9ea *vcredist.8.00.50727.6195.x64.exe
@@ -212,7 +212,7 @@
 @echo 15201ea32cbb4cd89eefd9e4305b5360ba2086b9 *vcredist.14.44.35112.1.x86.exe
 )>vcredist.sha
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 @echo+
 @echo DX Web Setup
@@ -226,7 +226,7 @@
 @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://www.microsoft.com/en-us/download/confirmation.aspx?id=8109'); $wc.DownloadFile('https://download.microsoft.com/download/8/4/A/84A35BF1-DAFE-4AE8-82AF-AD2AE20B6B14/directx_Jun2010_redist.exe', 'directx_Jun2010_redist.exe')"
 )
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 @echo+
 @echo DirectX 11.1 for Windows 7 SP1 and Windows Server 2008 R2 SP1
@@ -241,7 +241,7 @@
 @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://www.microsoft.com/en-us/download/details.aspx?id=36805'); $wc.DownloadFile('https://download.microsoft.com/download/1/4/9/14936FE9-4D16-4019-A093-5E00182609EB/Windows6.1-KB2670838-x64.msu', 'Windows6.1-KB2670838-x64.msu')"
 )
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 (
 @echo 7bf35f2afca666078db35ca95130beb2e3782212 *dxwebsetup.exe
@@ -250,7 +250,7 @@
 @echo 984b8d122a688d917f81c04155225b3ef31f012e *Windows6.1-KB2670838-x86.msu
 )>directx.sha
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 @echo+
 @echo NVIDIA PhysX System Software
@@ -267,7 +267,7 @@
 @echo 3b56abd0bc89090b6d6ceeaf2b5d27577b7b76b6 *PhysX-9.19.0218-SystemSoftware.exe
 )>physx.sha
 
-::ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+::Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›
 
 :: @if /i "%1"=="nocab" @goto NoCab
 :: (@dir *.bat *.exe *.sha *.msu /b)>"filelist.txt"
