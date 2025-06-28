@@ -230,6 +230,7 @@ defaultPref("browser.uidensity", 1);
 defaultPref("browser.uitour.enabled", false);
 defaultPref("browser.urlbar.formatting.enabled", false);
 defaultPref("browser.urlbar.oneOffSearches", false);
+defaultPref("browser.urlbar.scotchBonnet.enableOverride", false);
 defaultPref("browser.urlbar.searchSuggestionsChoice", false);
 defaultPref("browser.urlbar.suggest.searches", false);
 defaultPref("browser.urlbar.suggest.topsites", false);
