@@ -1,5 +1,5 @@
 @echo off
-@title r3dfox Portable Creator - ver.5.0.1.1 [04.06.2025]
+@title r3dfox Portable Creator - ver.5.0.2 [28.06.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLCH1
@@ -271,6 +271,7 @@
 @echo defaultPref^("browser.uitour.enabled", false^);
 @echo defaultPref^("browser.urlbar.formatting.enabled", false^);
 @echo defaultPref^("browser.urlbar.oneOffSearches", false^);
+@echo defaultPref^("browser.urlbar.scotchBonnet.enableOverride", false^);
 @echo defaultPref^("browser.urlbar.searchSuggestionsChoice", false^);
 @echo defaultPref^("browser.urlbar.suggest.searches", false^);
 @echo defaultPref^("browser.urlbar.suggest.topsites", false^);
@@ -908,6 +909,7 @@
 @echo user_pref^("browser.uitour.enabled", false^);
 @echo user_pref^("browser.urlbar.formatting.enabled", false^);
 @echo user_pref^("browser.urlbar.oneOffSearches", false^);
+@echo user_pref^("browser.urlbar.scotchBonnet.enableOverride", false^);
 @echo user_pref^("browser.urlbar.searchSuggestionsChoice", false^);
 @echo user_pref^("browser.urlbar.suggest.searches", false^);
 @echo user_pref^("browser.urlbar.suggest.topsites", false^);
