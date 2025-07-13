@@ -294,6 +294,7 @@ defaultPref("dom.private-attribution.submission.enabled", false);
 defaultPref("dom.push.connection.enabled", false);
 defaultPref("dom.push.enabled", false);
 defaultPref("dom.push.serverURL", "");
+defaultPref("dom.quotaManager.backgroundTask.enabled", false);
 // defaultPref("dom.security.https_first", true);
 defaultPref("dom.security.https_only_mode", true);
 defaultPref("dom.security.https_only_mode_ever_enabled", true);
