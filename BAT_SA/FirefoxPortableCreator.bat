@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.5.0.2 [28.06.2025]
+@title Firefox Portable Creator - ver.5.0.3 [13.07.2025]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt
@@ -315,6 +315,7 @@
 @echo defaultPref^("dom.push.connection.enabled", false^);
 @echo defaultPref^("dom.push.enabled", false^);
 @echo defaultPref^("dom.push.serverURL", ""^);
+@echo defaultPref^("dom.quotaManager.backgroundTask.enabled", false^);
 @echo // defaultPref^("dom.security.https_first", true^);
 @echo defaultPref^("dom.security.https_only_mode", true^);
 @echo defaultPref^("dom.security.https_only_mode_ever_enabled", true^);
@@ -953,6 +954,7 @@
 @echo user_pref^("dom.push.connection.enabled", false^);
 @echo user_pref^("dom.push.enabled", false^);
 @echo user_pref^("dom.push.serverURL", ""^);
+@echo user_pref^("dom.quotaManager.backgroundTask.enabled", false^);
 @echo // user_pref^("dom.security.https_first", true^);
 @echo user_pref^("dom.security.https_only_mode", true^);
 @echo user_pref^("dom.security.https_only_mode_ever_enabled", true^);
