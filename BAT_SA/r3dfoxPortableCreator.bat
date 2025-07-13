@@ -1,5 +1,5 @@
 @echo off
-@title r3dfox Portable Creator - ver.5.0.3 [13.07.2025]
+@title r3dfox Portable Creator - ver.5.0.5 [13.07.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLCH1
@@ -233,8 +233,8 @@
 @echo defaultPref^("browser.selfsupport.url", ""^);
 @echo defaultPref^("browser.sessionhistory.max_entries", 128^);
 @echo defaultPref^("browser.sessionstore.max_tabs_undo", 32^);
-@echo defaultPref^("browser.sessionstore.restore_tabs_lazily", false^);
-@echo defaultPref^("browser.sessionstore.restore_on_demand", false^);
+@echo // defaultPref^("browser.sessionstore.restore_tabs_lazily", false^);
+@echo // defaultPref^("browser.sessionstore.restore_on_demand", false^);
 @echo defaultPref^("browser.sessionstore.warnOnQuit", true^);
 @echo defaultPref^("browser.shell.checkDefaultBrowser", false^);
 @echo defaultPref^("browser.shopping.experience2023.active", false^);
@@ -315,8 +315,8 @@
 @echo // defaultPref^("dom.enable_performance", false^);
 @echo defaultPref^("dom.enable_performance_navigation_timing", false^);
 @echo defaultPref^("dom.enable_performance_observer", false^);
-@echo defaultPref^("dom.enable_resource_timing", false^);
-@echo defaultPref^("dom.enable_user_timing", false^);
+@echo // defaultPref^("dom.enable_resource_timing", false^);
+@echo // defaultPref^("dom.enable_user_timing", false^);
 @echo defaultPref^("dom.event.clipboardevents.enabled", false^);
 @echo defaultPref^("dom.gamepad.enabled", false^);
 @echo defaultPref^("dom.gamepad.extensions.enabled", false^);
@@ -872,8 +872,8 @@
 @echo user_pref^("browser.selfsupport.url", ""^);
 @echo user_pref^("browser.sessionhistory.max_entries", 128^);
 @echo user_pref^("browser.sessionstore.max_tabs_undo", 32^);
-@echo user_pref^("browser.sessionstore.restore_tabs_lazily", false^);
-@echo user_pref^("browser.sessionstore.restore_on_demand", false^);
+@echo // user_pref^("browser.sessionstore.restore_tabs_lazily", false^);
+@echo // user_pref^("browser.sessionstore.restore_on_demand", false^);
 @echo user_pref^("browser.sessionstore.warnOnQuit", true^);
 @echo user_pref^("browser.shell.checkDefaultBrowser", false^);
 @echo user_pref^("browser.shopping.experience2023.active", false^);
@@ -954,8 +954,8 @@
 @echo // user_pref^("dom.enable_performance", false^);
 @echo user_pref^("dom.enable_performance_navigation_timing", false^);
 @echo user_pref^("dom.enable_performance_observer", false^);
-@echo user_pref^("dom.enable_resource_timing", false^);
-@echo user_pref^("dom.enable_user_timing", false^);
+@echo // user_pref^("dom.enable_resource_timing", false^);
+@echo // user_pref^("dom.enable_user_timing", false^);
 @echo user_pref^("dom.event.clipboardevents.enabled", false^);
 @echo user_pref^("dom.gamepad.enabled", false^);
 @echo user_pref^("dom.gamepad.extensions.enabled", false^);
