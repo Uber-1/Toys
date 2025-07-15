@@ -208,8 +208,8 @@
 @echo b2b6f1aa711becef44f8ddf44710f5b842d29574 *vcredist.14.28.29213.0-XP.x86.exe
 @echo 91a09963703189274e995ded25b94e165545f126 *vcredist.14.29.30156.0.x64.exe
 @echo 2432668dc47827fb9a7ca9f4d3800280cde6f46b *vcredist.14.29.30156.0.x86.exe
-@echo c14a4b9a374d3ebd3f032a51b356dc8054d98e5a *vcredist.14.44.35208.0.x64.exe
-@echo fb3a9b4b4fbce99628f6fab2e320d3ad2f570a73 *vcredist.14.44.35208.0.x86.exe
+@echo 21ce0ee54bff57f69fafa741025bf2f15b356405 *vcredist.14.44.35211.0.x64.exe
+@echo c2743ffc36d2af40ade0e370be52d6b202874114 *vcredist.14.44.35211.0.x86.exe
 )>vcredist.sha
 
 ::лллллллллллллллллллллллллллллллл

@@ -19,42 +19,42 @@
 )
 
 @echo+
-@echo 9.0.5
+@echo 9.0.7
 @echo https://dotnet.microsoft.com/en-us/download/dotnet/9.0
 @if /i "%UsePS%"=="0" (
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/9.0.5/windowsdesktop-runtime-9.0.5-win-x86.exe"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/9.0.5/windowsdesktop-runtime-9.0.5-win-x64.exe"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.5/dotnet-runtime-9.0.5-win-x86.exe"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.5/dotnet-runtime-9.0.5-win-x64.exe"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.5/dotnet-runtime-9.0.5-win-x86.zip"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.5/dotnet-runtime-9.0.5-win-x64.zip"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/9.0.7/windowsdesktop-runtime-9.0.7-win-x86.exe"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/9.0.7/windowsdesktop-runtime-9.0.7-win-x64.exe"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.7/dotnet-runtime-9.0.7-win-x86.exe"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.7/dotnet-runtime-9.0.7-win-x64.exe"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.7/dotnet-runtime-9.0.7-win-x86.zip"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.7/dotnet-runtime-9.0.7-win-x64.zip"
 ) else (
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/9.0.5/windowsdesktop-runtime-9.0.5-win-x86.exe', 'windowsdesktop-runtime-9.0.5-win-x86.exe')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/9.0.5/windowsdesktop-runtime-9.0.5-win-x64.exe', 'windowsdesktop-runtime-9.0.5-win-x64.exe')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.5/dotnet-runtime-9.0.5-win-x86.exe', 'dotnet-runtime-9.0.5-win-x86.exe')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.5/dotnet-runtime-9.0.5-win-x64.exe', 'dotnet-runtime-9.0.5-win-x64.exe')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.5/dotnet-runtime-9.0.5-win-x86.zip', 'dotnet-runtime-9.0.5-win-x86.zip')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.5/dotnet-runtime-9.0.5-win-x64.zip', 'dotnet-runtime-9.0.5-win-x64.zip')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/9.0.7/windowsdesktop-runtime-9.0.7-win-x86.exe', 'windowsdesktop-runtime-9.0.7-win-x86.exe')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/9.0.7/windowsdesktop-runtime-9.0.7-win-x64.exe', 'windowsdesktop-runtime-9.0.7-win-x64.exe')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.7/dotnet-runtime-9.0.7-win-x86.exe', 'dotnet-runtime-9.0.7-win-x86.exe')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.7/dotnet-runtime-9.0.7-win-x64.exe', 'dotnet-runtime-9.0.7-win-x64.exe')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.7/dotnet-runtime-9.0.7-win-x86.zip', 'dotnet-runtime-9.0.7-win-x86.zip')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/9.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.7/dotnet-runtime-9.0.7-win-x64.zip', 'dotnet-runtime-9.0.7-win-x64.zip')"
 )
 @md 9-0 &@move "*9.0*.*" "9-0\"
 
 @echo+
-@echo 8.0.16
+@echo 8.0.18
 @echo https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 @if /i "%UsePS%"=="0" (
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/8.0.16/windowsdesktop-runtime-8.0.16-win-x86.exe"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/8.0.16/windowsdesktop-runtime-8.0.16-win-x64.exe"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-win-x86.exe"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-win-x64.exe"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-win-x86.zip"
- @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-win-x64.zip"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/8.0.18/windowsdesktop-runtime-8.0.18-win-x86.exe"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/8.0.18/windowsdesktop-runtime-8.0.18-win-x64.exe"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.18/dotnet-runtime-8.0.18-win-x86.exe"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.18/dotnet-runtime-8.0.18-win-x64.exe"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.18/dotnet-runtime-8.0.18-win-x86.zip"
+ @curl.exe -RLO# "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.18/dotnet-runtime-8.0.18-win-x64.zip"
 ) else (
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/8.0.16/windowsdesktop-runtime-8.0.16-win-x86.exe', 'windowsdesktop-runtime-8.0.16-win-x86.exe')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/8.0.16/windowsdesktop-runtime-8.0.16-win-x64.exe', 'windowsdesktop-runtime-8.0.16-win-x64.exe')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-win-x86.exe', 'dotnet-runtime-8.0.16-win-x86.exe')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-win-x64.exe', 'dotnet-runtime-8.0.16-win-x64.exe')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-win-x86.zip', 'dotnet-runtime-8.0.16-win-x86.zip')"
- @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.16/dotnet-runtime-8.0.16-win-x64.zip', 'dotnet-runtime-8.0.16-win-x64.zip')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/8.0.18/windowsdesktop-runtime-8.0.18-win-x86.exe', 'windowsdesktop-runtime-8.0.18-win-x86.exe')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/8.0.18/windowsdesktop-runtime-8.0.18-win-x64.exe', 'windowsdesktop-runtime-8.0.18-win-x64.exe')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.18/dotnet-runtime-8.0.18-win-x86.exe', 'dotnet-runtime-8.0.18-win-x86.exe')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.18/dotnet-runtime-8.0.18-win-x64.exe', 'dotnet-runtime-8.0.18-win-x64.exe')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.18/dotnet-runtime-8.0.18-win-x86.zip', 'dotnet-runtime-8.0.18-win-x86.zip')"
+ @powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://dotnet.microsoft.com/en-us/download/dotnet/8.0'); $wc.DownloadFile('https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.18/dotnet-runtime-8.0.18-win-x64.zip', 'dotnet-runtime-8.0.18-win-x64.zip')"
 )
 @md 8-0 &@move "*8.0*.*" "8-0\"
 
@@ -323,18 +323,18 @@
 )>crc32.sfv
 
 (
-@echo a19d271cbf77504077d31af88c2532d18076ccbce1685fbc88d72efa38fafb0b0e8c93ea3c6c49a29b31214bf8c9e8ef0230f6fc819b484438d803cf684b6752 *9-0\windowsdesktop-runtime-9.0.5-win-x86.exe
-@echo 89b536b45d2497489f3e96b1d956cb03df97fca14758fcc5b96eb260338036e3d3c8a242d98627e47219abaed65a4b2765226dc71e3753869260701a5a76171c *9-0\windowsdesktop-runtime-9.0.5-win-x64.exe
-@echo b6e61405c8a34c3333691b88255a7fe3d5b7939bdd53aefeea042d4d0c78f65d0ec26cd7aafccb66c495068643e460d79c7d1e401e8252702719ca052b6e3aff *9-0\dotnet-runtime-9.0.5-win-x86.exe
-@echo 122bfc33930db846c85b811d762afdbcc15744c112eed1a7d356242e7fe66d3158a5dd9c105a6620cf71e93a7c517a9fda5c2b9a7d8cde5add229fcd254ebf70 *9-0\dotnet-runtime-9.0.5-win-x64.exe
-@echo aa2c68edde03b2dd9b92e9b79b9616fe71b826ef90027ff724a966ef5835c8d77b6a22dc15645fc071b898f16a5c8f0484b634eaede87ea167bd9ec04d5a8830 *9-0\dotnet-runtime-9.0.5-win-x86.zip
-@echo 907dce00c1807d7b5120885a860747a55bffd843f0b3e26a7ce5f4bfc13f36bdd56d16341db74946ea29b1b9a67d038f0a776bd697eb27feb1af722957d459f7 *9-0\dotnet-runtime-9.0.5-win-x64.zip
-@echo f91558eba877dd98aa2c69e7db5cb1d78519e5c958c2d6b153e6a7412ecfe9c91c6f5d38ed762d698d08775b05d2746aaa617c032024ef9d2d568fe1e2e96aa7 *8-0\windowsdesktop-runtime-8.0.16-win-x86.exe
-@echo 526c0cf217c04f590ab5b88de4bff41f4f4ca13c4efb4f79bbaafe0b24fc48fdae1e769b0011bf8020b1ad6d8fbf6e1f31175045e86ee9c578a4892124828c2f *8-0\windowsdesktop-runtime-8.0.16-win-x64.exe
-@echo b94756c56cdf505ad272d435e145a67b3aa3c518fb34c78e37d769a7b69a0f5f259cb9a51bb28c26f070d0950ff766ea57a99d477da7b606b83728783708f1b9 *8-0\dotnet-runtime-8.0.16-win-x86.exe
-@echo 8c61220263b0d5640cb5c5499652fff5a99bbe9930d95d42943eb336cff80ecc7e00a7f6304d992da8016f5e8bacaac5323ecab92aa2e2cdf214c4e8425aef4f *8-0\dotnet-runtime-8.0.16-win-x64.exe
-@echo 0a51c551ebeb46795be2aef9785c09f5ce03caf5da730e9ccea4bf58075668e84fed91ce741dec1953942c07e2790990005a24ee0fa5c82504dadcf615639677 *8-0\dotnet-runtime-8.0.16-win-x86.zip
-@echo 096632e933c94413316c7f7d54541cfbec76d0d77776bfdeda1cb155567a6eaefb33bcdd1e36d9add3bb0f276418b3615782489be3e1cb9e628138c8b91c23e2 *8-0\dotnet-runtime-8.0.16-win-x64.zip
+@echo a73bed11192173204263e12efa0ae1892f0768f3bc6230a06c9cb3d418c8edfbf17b1d92423d7606d6ce0849bc6d0e13c28210ee39fd7c4167e5f457df24c84f *9-0\windowsdesktop-runtime-9.0.7-win-x86.exe
+@echo b8c565d401aa1ed0ac8e531660e7b67dce481af7f9113816852a24fbc5ed06210787ebb8a47e576b57a8cd746279c2203569d11b2b4affe66ee0f80e26c64ae6 *9-0\windowsdesktop-runtime-9.0.7-win-x64.exe
+@echo 09e200897e8260aec4e5984e49aa27ea8bc2e0b12576df55a4c753a415f61b28f5e6c28c411f5e316ef49ec256079adc0ca6ff407f51363bb17009420dfbb137 *9-0\dotnet-runtime-9.0.7-win-x86.exe
+@echo b62882656b63edd10e8fa4f44d8a67f2265991bb7eb5c614c7d87548802adfce034795a5bb17e0705343151e6f99c5be3104926f1aa5d1a6fa22279de0c08518 *9-0\dotnet-runtime-9.0.7-win-x64.exe
+@echo 5d6aaf64bfaac3afb8dcbc0dacca61239b5690ff6d2ab6690417203d6afd3fbd5ac2577887772150bad2fac20fb80994ff4f8d6feb6c9963aee65a89737b44d3 *9-0\dotnet-runtime-9.0.7-win-x86.zip
+@echo 7259b0a49bb800bcf603cb4797a7f20ed0abcc29ec9effdea03748a2ede7559dacee9bc21d578152b14089aa2a7385858327c39e86202f3ecceaa6f0bc00ea58 *9-0\dotnet-runtime-9.0.7-win-x64.zip
+@echo 8104111795565cdeeefca8fe1caa42476645286052c26f2de80d7a8ff0f796e371dd8509077bcb911e3b38845fe0cd3a23a1cb85ef2a9249444fabcf1c8defb0 *8-0\windowsdesktop-runtime-8.0.18-win-x86.exe
+@echo fd6b4ae532e7106a0faa82aff67321920fdd123ad23a7c6b3a6ce9d55e81a4557c262f11e0e60a3e27114c001ce02f6e6c4c6acc5bf7c0426bead43218155444 *8-0\windowsdesktop-runtime-8.0.18-win-x64.exe
+@echo a7602ac6e9c6a1a104f5309c436497dd6937ab15d922291d6945d6a4fb04693eb129710d7f68404f0521f395fcc83e4686a3a81686a2e3ceb1e2278d58386140 *8-0\dotnet-runtime-8.0.18-win-x86.exe
+@echo 4bddf4af2637d06ca978631c89044567f76b3e806c8f3c77224a2e7fd34fcdc7a8732473e90457d73e71ad1ee1146a2d3b4168d39238acb30938145328d524d8 *8-0\dotnet-runtime-8.0.18-win-x64.exe
+@echo e9d8433f8d0eed0e955e7834dbb171ea3c9d8b8ad1309cbde24da968784abceec56746ff1f9466c7dbf06679f729a453911670eac123abcb58cd3add0b31f2fb *8-0\dotnet-runtime-8.0.18-win-x86.zip
+@echo 3c682a7fc0c35b666cae065c8775a0151875c91f12ff12bcf9f1cac2172eb9d486b04036734d6d812d728b8f3ae7d6f72fc063fd0da76c1f35d0e27d07b434b8 *8-0\dotnet-runtime-8.0.18-win-x64.zip
 @echo cfdf8369b3ac1c8fcba3274cb716c9faaa1df489ec3d3fd77419e78a0d740588546269ab7d77e09b3d4fe3817c55ca63c909d259ab7fe8b33da351453b58a05b *7-0\windowsdesktop-runtime-7.0.20-win-x86.exe
 @echo a0ed41e1672a25a9ee2cf3ca081e90f037b889100dbf8312e277447a801a4f3b7af464fa05fb796a24f89cd119102e8d0a382f4711e4e6263e5503642231da88 *7-0\windowsdesktop-runtime-7.0.20-win-x64.exe
 @echo b8d5e8dfd844bbdd9cf83c512f015d06bd326e17fb9d250ef8d02a8f4adb6bbfa1ec6ab1a49c7a72ec608cad90da4f1f8e6b1d1129b9d53bb2036ee5c6cfaead *7-0\dotnet-runtime-7.0.20-win-x86.exe
