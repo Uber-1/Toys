@@ -1,5 +1,5 @@
 @echo off
-@title Waterfox Portable Creator - ver.5.0.5 [13.07.2025]
+@title Waterfox Portable Creator - ver.5.0.6 [10.08.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLDL
@@ -86,6 +86,7 @@
 @echo defaultPref^("browser.link.open_newwindow.restriction", 0^);
 @echo defaultPref^("browser.menu.showCharacterEncoding", "false"^);
 @echo defaultPref^("browser.messaging-system.whatsNewPanel.enabled", false^);
+@echo defaultPref^("browser.ml.chat.enabled", false^);
 @echo defaultPref^("browser.newtab.preload", false^);
 @echo defaultPref^("browser.newtabpage.activity-stream.aboutHome.enabled", false^);
 @echo defaultPref^("browser.newtabpage.activity-stream.discoverystream.enabled", false^);
@@ -229,6 +230,7 @@
 @echo defaultPref^("browser.tabs.closeWindowWithLastTab", false^);
 @echo defaultPref^("browser.tabs.crashReporting.sendReport", false^);
 @echo defaultPref^("browser.tabs.firefox-view", false^);
+@echo defaultPref^("browser.tabs.groups.smart.enabled", false^);
 @echo defaultPref^("browser.tabs.loadInBackground", false^);
 @echo defaultPref^("browser.tabs.maxOpenBeforeWarn", 10^);
 @echo defaultPref^("browser.tabs.remote.autostart", false^);
@@ -725,6 +727,7 @@
 @echo user_pref^("browser.link.open_newwindow.restriction", 0^);
 @echo user_pref^("browser.menu.showCharacterEncoding", "false"^);
 @echo user_pref^("browser.messaging-system.whatsNewPanel.enabled", false^);
+@echo user_pref^("browser.ml.chat.enabled", false^);
 @echo user_pref^("browser.newtab.preload", false^);
 @echo user_pref^("browser.newtabpage.activity-stream.aboutHome.enabled", false^);
 @echo user_pref^("browser.newtabpage.activity-stream.discoverystream.enabled", false^);
@@ -868,6 +871,7 @@
 @echo user_pref^("browser.tabs.closeWindowWithLastTab", false^);
 @echo user_pref^("browser.tabs.crashReporting.sendReport", false^);
 @echo user_pref^("browser.tabs.firefox-view", false^);
+@echo user_pref^("browser.tabs.groups.smart.enabled", false^);
 @echo user_pref^("browser.tabs.loadInBackground", false^);
 @echo user_pref^("browser.tabs.maxOpenBeforeWarn", 10^);
 @echo user_pref^("browser.tabs.remote.autostart", false^);
