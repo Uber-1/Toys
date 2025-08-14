@@ -96,6 +96,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket",
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", true);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
+user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.activity-stream.showTopSites", true);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
@@ -462,6 +463,7 @@ user_pref("readinglist.scheduler.enabled", false);
 user_pref("readinglist.server", "");
 user_pref("security.app_menu.recordEventTelemetry", false);
 user_pref("security.certerrors.recordEventTelemetry", false);
+user_pref("security.csp.reporting.enabled", false);
 user_pref("security.identityblock.show_extended_validation", true);
 user_pref("security.identitypopup.recordEventTelemetry", false);
 user_pref("security.insecure_connection_text.enabled", false);
