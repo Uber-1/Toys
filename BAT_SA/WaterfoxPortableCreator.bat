@@ -1,5 +1,5 @@
 @echo off
-@title Waterfox Portable Creator - ver.5.0.6 [10.08.2025]
+@title Waterfox Portable Creator - ver.5.0.7 [14.08.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLDL
@@ -109,6 +109,7 @@
 @echo defaultPref^("browser.newtabpage.activity-stream.section.highlights.includeVisited", false^);
 @echo defaultPref^("browser.newtabpage.activity-stream.showSearch", true^);
 @echo defaultPref^("browser.newtabpage.activity-stream.showSponsored", false^);
+@echo defaultPref^("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false^);
 @echo defaultPref^("browser.newtabpage.activity-stream.showSponsoredTopSites", false^);
 @echo defaultPref^("browser.newtabpage.activity-stream.showTopSites", true^);
 @echo defaultPref^("browser.newtabpage.activity-stream.telemetry", false^);
@@ -475,6 +476,7 @@
 @echo defaultPref^("readinglist.server", ""^);
 @echo defaultPref^("security.app_menu.recordEventTelemetry", false^);
 @echo defaultPref^("security.certerrors.recordEventTelemetry", false^);
+@echo defaultPref^("security.csp.reporting.enabled", false^);
 @echo defaultPref^("security.identityblock.show_extended_validation", true^);
 @echo defaultPref^("security.identitypopup.recordEventTelemetry", false^);
 @echo defaultPref^("security.insecure_connection_text.enabled", false^);
@@ -750,6 +752,7 @@
 @echo user_pref^("browser.newtabpage.activity-stream.section.highlights.includeVisited", false^);
 @echo user_pref^("browser.newtabpage.activity-stream.showSearch", true^);
 @echo user_pref^("browser.newtabpage.activity-stream.showSponsored", false^);
+@echo user_pref^("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false^);
 @echo user_pref^("browser.newtabpage.activity-stream.showSponsoredTopSites", false^);
 @echo user_pref^("browser.newtabpage.activity-stream.showTopSites", true^);
 @echo user_pref^("browser.newtabpage.activity-stream.telemetry", false^);
@@ -1116,6 +1119,7 @@
 @echo user_pref^("readinglist.server", ""^);
 @echo user_pref^("security.app_menu.recordEventTelemetry", false^);
 @echo user_pref^("security.certerrors.recordEventTelemetry", false^);
+@echo user_pref^("security.csp.reporting.enabled", false^);
 @echo user_pref^("security.identityblock.show_extended_validation", true^);
 @echo user_pref^("security.identitypopup.recordEventTelemetry", false^);
 @echo user_pref^("security.insecure_connection_text.enabled", false^);
