@@ -1,5 +1,5 @@
 @echo off
-@title Waterfox Portable Creator - ver.5.0.7 [14.08.2025]
+@title Waterfox Portable Creator - ver.5.0.8 [20.08.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLDL
@@ -59,6 +59,7 @@
 @echo defaultPref^("browser.chrome.errorReporter.enabled", false^);
 @echo defaultPref^("browser.chrome.errorReporter.infoURL", ""^);
 @echo defaultPref^("browser.chrome.errorReporter.submitUrl", ""^);
+@echo defaultPref^("browser.compactmode.show", true^);
 @echo defaultPref^("browser.contentblocking.report.endpoint_url", ""^);
 @echo defaultPref^("browser.ctrlTab.recentlyUsedOrder", false^);
 @echo defaultPref^("browser.customizemode.tip0.shown", true^);
@@ -289,7 +290,7 @@
 @echo defaultPref^("dom.disable_window_status_change", false^);
 @echo // defaultPref^("dom.enable_performance", false^);
 @echo defaultPref^("dom.enable_performance_navigation_timing", false^);
-@echo defaultPref^("dom.enable_performance_observer", false^);
+@echo // defaultPref^("dom.enable_performance_observer", false^);
 @echo // defaultPref^("dom.enable_resource_timing", false^);
 @echo // defaultPref^("dom.enable_user_timing", false^);
 @echo defaultPref^("dom.event.clipboardevents.enabled", false^);
@@ -702,6 +703,7 @@
 @echo user_pref^("browser.chrome.errorReporter.enabled", false^);
 @echo user_pref^("browser.chrome.errorReporter.infoURL", ""^);
 @echo user_pref^("browser.chrome.errorReporter.submitUrl", ""^);
+@echo user_pref^("browser.compactmode.show", true^);
 @echo user_pref^("browser.contentblocking.report.endpoint_url", ""^);
 @echo user_pref^("browser.ctrlTab.recentlyUsedOrder", false^);
 @echo user_pref^("browser.customizemode.tip0.shown", true^);
@@ -932,7 +934,7 @@
 @echo user_pref^("dom.disable_window_status_change", false^);
 @echo // user_pref^("dom.enable_performance", false^);
 @echo user_pref^("dom.enable_performance_navigation_timing", false^);
-@echo user_pref^("dom.enable_performance_observer", false^);
+@echo // user_pref^("dom.enable_performance_observer", false^);
 @echo // user_pref^("dom.enable_resource_timing", false^);
 @echo // user_pref^("dom.enable_user_timing", false^);
 @echo user_pref^("dom.event.clipboardevents.enabled", false^);
