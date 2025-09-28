@@ -217,6 +217,7 @@ defaultPref("browser.tabs.remote.autostart", false);
 defaultPref("browser.tabs.remote.autostart.2", false);
 defaultPref("browser.tabs.tabMinWidth", 40);
 defaultPref("browser.taskbar.previews.enable", true);
+defaultPref("browser.taskbarTabs.enabled", false);
 defaultPref("browser.theme.dark-private-windows", false);
 defaultPref("browser.topsites.contile.enabled", false);
 defaultPref("browser.toolbarbuttons.introduced.pocket-button", true);
