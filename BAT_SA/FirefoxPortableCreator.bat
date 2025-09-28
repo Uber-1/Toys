@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.5.0.8 [20.08.2025]
+@title Firefox Portable Creator - ver.5.0.9 [28.09.2025]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt
@@ -247,6 +247,7 @@
 @echo defaultPref^("browser.tabs.remote.autostart.2", false^);
 @echo defaultPref^("browser.tabs.tabMinWidth", 40^);
 @echo defaultPref^("browser.taskbar.previews.enable", true^);
+@echo defaultPref^("browser.taskbarTabs.enabled", false^);
 @echo defaultPref^("browser.theme.dark-private-windows", false^);
 @echo defaultPref^("browser.topsites.contile.enabled", false^);
 @echo defaultPref^("browser.toolbarbuttons.introduced.pocket-button", true^);
@@ -891,6 +892,7 @@
 @echo user_pref^("browser.tabs.remote.autostart.2", false^);
 @echo user_pref^("browser.tabs.tabMinWidth", 40^);
 @echo user_pref^("browser.taskbar.previews.enable", true^);
+@echo user_pref^("browser.taskbarTabs.enabled", false^);
 @echo user_pref^("browser.theme.dark-private-windows", false^);
 @echo user_pref^("browser.topsites.contile.enabled", false^);
 @echo user_pref^("browser.toolbarbuttons.introduced.pocket-button", true^);
