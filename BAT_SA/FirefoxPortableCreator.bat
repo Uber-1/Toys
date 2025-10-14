@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.5.0.9 [28.09.2025]
+@title Firefox Portable Creator - ver.5.0.10 [15.10.2025]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt
@@ -96,6 +96,13 @@
 @echo defaultPref^("browser.menu.showCharacterEncoding", "false"^);
 @echo defaultPref^("browser.messaging-system.whatsNewPanel.enabled", false^);
 @echo defaultPref^("browser.ml.chat.enabled", false^);
+@echo defaultPref^("browser.ml.chat.menu", false^);
+@echo defaultPref^("browser.ml.chat.page", false^);
+@echo defaultPref^("browser.ml.chat.page.footerBadge", false^);
+@echo defaultPref^("browser.ml.chat.page.menuBadge", false^);
+@echo defaultPref^("browser.ml.chat.shortcuts", false^);
+@echo defaultPref^("browser.ml.chat.sidebar", false^);
+@echo defaultPref^("browser.ml.enable", false^);
 @echo defaultPref^("browser.newtab.preload", false^);
 @echo defaultPref^("browser.newtabpage.activity-stream.aboutHome.enabled", false^);
 @echo defaultPref^("browser.newtabpage.activity-stream.discoverystream.enabled", false^);
@@ -741,6 +748,13 @@
 @echo user_pref^("browser.menu.showCharacterEncoding", "false"^);
 @echo user_pref^("browser.messaging-system.whatsNewPanel.enabled", false^);
 @echo user_pref^("browser.ml.chat.enabled", false^);
+@echo user_pref^("browser.ml.chat.menu", false^);
+@echo user_pref^("browser.ml.chat.page", false^);
+@echo user_pref^("browser.ml.chat.page.footerBadge", false^);
+@echo user_pref^("browser.ml.chat.page.menuBadge", false^);
+@echo user_pref^("browser.ml.chat.shortcuts", false^);
+@echo user_pref^("browser.ml.chat.sidebar", false^);
+@echo user_pref^("browser.ml.enable", false^);
 @echo user_pref^("browser.newtab.preload", false^);
 @echo user_pref^("browser.newtabpage.activity-stream.aboutHome.enabled", false^);
 @echo user_pref^("browser.newtabpage.activity-stream.discoverystream.enabled", false^);
