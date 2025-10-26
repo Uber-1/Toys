@@ -1,5 +1,5 @@
 @echo off
-@title Google Chrome downloader + configer ^| ver.6.0 [15.05.2025]
+@title Google Chrome downloader + configer ^| ver.6.1 [26.10.2025]
 @cd /d "%~dp0"
 @echo.
 @echo Release channel:
@@ -30,17 +30,23 @@
 
 @echo.
 @echo Unpack...
-@7zr.exe x -t7z -bso0 "GC32.exec" -o"." &&@rename chrome.7z chrome32.7z &&@7zr.exe rn -bso0 "chrome32.7z" Chrome-bin Chrome-win32
-@7zr.exe x -t7z -bso0 "GC64.exec" -o"." &&@rename chrome.7z chrome64.7z &&@7zr.exe rn -bso0 "chrome64.7z" Chrome-bin Chrome-win64
+@7zr.exe x -t7z -bso0 "GC32.exec" -o"." chrome.7z &&@rename chrome.7z chrome32.7z &&@7zr.exe rn -bso0 "chrome32.7z" Chrome-bin Chrome-win32
+@7zr.exe x -t7z -bso0 "GC64.exec" -o"." chrome.7z &&@rename chrome.7z chrome64.7z &&@7zr.exe rn -bso0 "chrome64.7z" Chrome-bin Chrome-win64
+@if not exist "chrome32.7z" (@7zr.exe x -t# -bso0 "GC32.exec" -o"." 2.7z &&@rename 2.7z chrome32.7z &&@7zr.exe rn -bso0 "chrome32.7z" Chrome-bin Chrome-win32)
+@if not exist "chrome64.7z" (@7zr.exe x -t# -bso0 "GC64.exec" -o"." 2.7z &&@rename 2.7z chrome64.7z &&@7zr.exe rn -bso0 "chrome64.7z" Chrome-bin Chrome-win64)
 @7zr.exe x -bso0 "chrome*.7z" -o"GChrome"
-@del /f /q chrome32.7z chrome64.7z "GC32.exec" "GC64.exec" "7zr.exe"
+@del /f /q chrome32.7z chrome64.7z "GC32.exec" "GC64.exec"
 
 @echo.
 @echo version.dll...
-@powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://github.com/Bush2021/chrome_plus/'); $wc.DownloadFile('https://github.com/Bush2021/chrome_plus/raw/main/setdll/chrome++32.dll', 'GChrome\Chrome-win32\version.dll')"
-@powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://github.com/Bush2021/chrome_plus/'); $wc.DownloadFile('https://github.com/Bush2021/chrome_plus/raw/main/setdll/chrome++64.dll', 'GChrome\Chrome-win64\version.dll')"
-@powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://github.com/Bush2021/chrome_plus/'); $wc.DownloadFile('https://github.com/Bush2021/chrome_plus/raw/main/setdll/chrome++.ini', 'GChrome\Chrome-win32\chrome++.ini')"
-@powershell -Command "$wc = New-Object System.Net.WebClient; $wc.Headers.Add('referer','https://github.com/Bush2021/chrome_plus/'); $wc.DownloadFile('https://github.com/Bush2021/chrome_plus/raw/main/setdll/chrome++.ini', 'GChrome\Chrome-win64\chrome++.ini')"
+@powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/Bush2021/chrome_plus/releases/latest/download/setdll.7z', 'setdll.7z')"
+
+@echo.
+@echo Unpack version.dll...
+
+@7zr.exe e -bso0 setdll.7z -o"GChrome\Chrome-win32" version-x86.dll *.ini &&@rename "GChrome\Chrome-win32\version-x86.dll" version.dll
+@7zr.exe e -bso0 setdll.7z -o"GChrome\Chrome-win64" version-x64.dll *.ini &&@rename "GChrome\Chrome-win64\version-x64.dll" version.dll
+@del /f /q "setdll.7z" "7zr.exe"
 
 @echo.
 @echo Config...
@@ -49,7 +55,7 @@
 @set CrUsDaDef=%CrUsDa%\Default
 @md "%CrExeDir%%CrUsDaDef%\"
 @set cr_loca1={"background_mode":{"enabled":false},"browser":{"enabled_labs_experiments":["ignore-gpu-blocklist","smooth-scrolling@2"]},"hardware_acceleration_mode_previous":true,"profile":{"last_used":"Default"}}
-@set cr_pref1={"NewTabPage":{"DisabledModules":["dummy","dummy2"],"ModulesVisible":false},"account_id_migration_state":2,"auto_pin_new_tab_groups":false,"autofill":{"credit_card_enabled":false,"enabled":false,"orphan_rows_removed":true,"profile_enabled":false},"bookmark_bar":{"show_apps_shortcut":false,"show_on_all_tabs":false,"show_reading_list":false,"show_tab_groups":false},"browser":{"check_default_browser":false,"clear_data":{"browsing_history_basic":true,"cache_basic":true,"cookies_basic":true,"form_data":true,"hosted_apps_data":true,"media_licenses":true,"passwords":true,"preferences_migrated_to_basic":true,"site_settings":true,"time_period":4,"time_period_basic":4},"clear_lso_data_enabled":true,"has_seen_welcome_page":true,"last_clear_browsing_data_tab":1,"theme":{"follows_system_colors":false,"is_grayscale":true},"window_placement":{"bottom":720,"left":64,"maximized":false,"right":1200,"top":32}},"credentials_enable_autosignin":false,"credentials_enable_service":false,"default_apps_install_state":2,"download":{"directory_upgrade":true,"prompt_for_download":true},"enable_do_not_track":true,"media":{"engagement":{"schema_version":4}},"net":{"network_prediction_options":2},"omnibox":{"prevent_url_elisions":true},"payments":{"can_make_payment_enabled":false},"profile":{"avatar_index":0,"block_third_party_cookies":true,"content_settings":{"clear_on_exit_migrated":true,"pref_version":1},"default_content_setting_values":{"background_sync":2,"cookies":1},"exit_type":"Normal","exited_cleanly":true,"local_avatar_index":0,"managed_user_id":"","name":"","password_manager_enabled":false},"safebrowsing":{"enabled":false,"unhandled_sync_password_reuses":{}},"savefile":{"default_directory":"::{20D04FE0-3AEA-1069-A2D8-08002B30309D}"},"search":{"suggest_enabled":false},"zerosuggest":{"cachedresults":""}}
+@set cr_pref1={"NewTabPage":{"DisabledModules":["dummy","dummy2"],"ModulesVisible":false},"account_id_migration_state":2,"auto_pin_new_tab_groups":false,"autofill":{"credit_card_enabled":false,"enabled":false,"orphan_rows_removed":true,"payment_card_benefits":false,"payment_cvc_storage":false,"profile_enabled":false},"bookmark_bar":{"show_apps_shortcut":false,"show_on_all_tabs":false,"show_reading_list":false,"show_tab_groups":false},"browser":{"check_default_browser":false,"clear_data":{"browsing_history_basic":true,"cache_basic":true,"cookies_basic":true,"form_data":true,"hosted_apps_data":true,"media_licenses":true,"passwords":true,"preferences_migrated_to_basic":true,"site_settings":true,"time_period":4,"time_period_basic":4},"clear_lso_data_enabled":true,"has_seen_welcome_page":true,"last_clear_browsing_data_tab":1,"theme":{"follows_system_colors":false,"is_grayscale":true},"window_placement":{"bottom":720,"left":64,"maximized":false,"right":1200,"top":32}},"credentials_enable_autosignin":false,"credentials_enable_service":false,"default_apps_install_state":2,"download":{"directory_upgrade":true,"prompt_for_download":true},"enable_do_not_track":true,"media":{"engagement":{"schema_version":4}},"net":{"network_prediction_options":2},"omnibox":{"prevent_url_elisions":true},"payments":{"can_make_payment_enabled":false},"profile":{"avatar_index":0,"block_third_party_cookies":true,"content_settings":{"clear_on_exit_migrated":true,"pref_version":1},"default_content_setting_values":{"background_sync":2,"cookies":1},"exit_type":"Normal","exited_cleanly":true,"local_avatar_index":0,"managed_user_id":"","name":"","password_manager_enabled":false},"safebrowsing":{"enabled":false,"unhandled_sync_password_reuses":{}},"savefile":{"default_directory":"::{20D04FE0-3AEA-1069-A2D8-08002B30309D}"},"search":{"suggest_enabled":false},"zerosuggest":{"cachedresults":""}}
 (@echo %cr_loca1%)>"%CrExeDir%%CrUsDa%\Local State"
 (@echo %cr_pref1%)>"%CrExeDir%%CrUsDaDef%\Preferences"
 (@echo @start Chrome.exe --user-data-dir=..\Data --disable-gpu-shader-disk-cache --disk-cache-dir=nul --disk-cache-size=1 --no-default-browser-check)>"%CrExeDir%Chrome-win32\GChromeLauncher.bat"
