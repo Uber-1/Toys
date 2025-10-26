@@ -26,8 +26,6 @@ Just save and run any script you wish.
 
 ### PortableCreators for Chrome-based browsers
 - [Brave Portable Creator](/BAT_SA/BravePortableCreator.cmd) - for latest Brave stable release.
-- [Catsxp Portable Creator](/BAT_SA/CatsxpPortableCreator.cmd) - for latest CatsXP release.
-- [Catsxp Portable CreatorV](/BAT_SA/CatsxpPortableCreatorV.cmd) - for latest CatsXP release + *version.dll (Chrome++ DLL)*.
 - [CentBrowser Portable Creator](/BAT_SA/CentBrowserPortableCreator.cmd) - for latest CentBrowser stable/beta releases.
 - [Chromium Portable Creator](/BAT_SA/ChromiumPortableCreator.cmd) - for latest Chromium dev release + *version.dll (Chrome++ DLL)*.
 - [Goodle Chrome PortableCreator UNI W7](/BAT_SA/GChromePortableCreatorUNI_W7.bat) - for Goodle Chrome 109.x stable/beta/dev/canary release + *version.dll (Chrome++ DLL)*.
