@@ -1,4 +1,4 @@
 @-moz-document domain("youtube.com") {:root {scrollbar-width: none !important; /* thin/auto/none */} }
 @-moz-document url("about:privatebrowsing") { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
 :root {scrollbar-color: #ff9900 transparent !important; }
-@-moz-document domain("youtube.com") { ytd-thumbnail[size] a.ytd-thumbnail, ytd-thumbnail[size]:before, ytd-watch-flexy[default-layout] #ytd-player.ytd-watch-flexy, .player-container.ytd-reel-video-renderer, ytd-player.ytd-shorts, .ytp-tooltip.ytp-preview, .ytp-tooltip.ytp-preview .ytp-tooltip-bg { border-radius: 0 !important; } }
+@-moz-document domain("youtube.com") { [class*="player"], [id*="player"] { border-radius: 0 !important; } }
