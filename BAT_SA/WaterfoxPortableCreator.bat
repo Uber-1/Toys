@@ -1,5 +1,5 @@
 @echo off
-@title Waterfox Portable Creator - ver.5.0.10 [15.10.2025]
+@title Waterfox Portable Creator - ver.5.0.11 [05.11.2025]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLDL
@@ -582,7 +582,7 @@
 @echo.@-moz-document domain^("youtube.com"^) {:root {scrollbar-width: none !important; /* thin/auto/none */} }
 @echo.@-moz-document url^("about:privatebrowsing"^) { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
 @echo.:root {scrollbar-color: #ff9900 transparent !important; }
-@echo @-moz-document domain^("youtube.com"^) { ytd-thumbnail[size] a.ytd-thumbnail, ytd-thumbnail[size]:before, ytd-watch-flexy[default-layout] #ytd-player.ytd-watch-flexy, .player-container.ytd-reel-video-renderer, ytd-player.ytd-shorts, .ytp-tooltip.ytp-preview, .ytp-tooltip.ytp-preview .ytp-tooltip-bg { border-radius: 0 !important; } }
+@echo @-moz-document domain^("youtube.com"^) { [class*="player"], [id*="player"] { border-radius: 0 !important; } }
 )>"WaterfoxPortable\portable\chrome\userContent.css"
 
 (
