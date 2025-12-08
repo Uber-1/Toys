@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.5.0.11 [05.11.2025]
+@title Firefox Portable Creator - ver.5.0.12 [08.12.2025]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest-esr/README.txt
@@ -103,6 +103,7 @@
 @echo defaultPref^("browser.ml.chat.shortcuts", false^);
 @echo defaultPref^("browser.ml.chat.sidebar", false^);
 @echo defaultPref^("browser.ml.enable", false^);
+@echo defaultPref^("browser.ml.linkPreview.enabled", false^);
 @echo defaultPref^("browser.newtab.preload", false^);
 @echo defaultPref^("browser.newtabpage.activity-stream.aboutHome.enabled", false^);
 @echo defaultPref^("browser.newtabpage.activity-stream.discoverystream.enabled", false^);
@@ -253,7 +254,7 @@
 @echo defaultPref^("browser.tabs.remote.autostart", false^);
 @echo defaultPref^("browser.tabs.remote.autostart.2", false^);
 @echo defaultPref^("browser.tabs.tabMinWidth", 40^);
-@echo defaultPref^("browser.taskbar.previews.enable", true^);
+@echo defaultPref^("browser.taskbar.previews.enable", false^);
 @echo defaultPref^("browser.taskbarTabs.enabled", false^);
 @echo defaultPref^("browser.theme.dark-private-windows", false^);
 @echo defaultPref^("browser.topsites.contile.enabled", false^);
@@ -755,6 +756,7 @@
 @echo user_pref^("browser.ml.chat.shortcuts", false^);
 @echo user_pref^("browser.ml.chat.sidebar", false^);
 @echo user_pref^("browser.ml.enable", false^);
+@echo user_pref^("browser.ml.linkPreview.enabled", false^);
 @echo user_pref^("browser.newtab.preload", false^);
 @echo user_pref^("browser.newtabpage.activity-stream.aboutHome.enabled", false^);
 @echo user_pref^("browser.newtabpage.activity-stream.discoverystream.enabled", false^);
@@ -905,7 +907,7 @@
 @echo user_pref^("browser.tabs.remote.autostart", false^);
 @echo user_pref^("browser.tabs.remote.autostart.2", false^);
 @echo user_pref^("browser.tabs.tabMinWidth", 40^);
-@echo user_pref^("browser.taskbar.previews.enable", true^);
+@echo user_pref^("browser.taskbar.previews.enable", false^);
 @echo user_pref^("browser.taskbarTabs.enabled", false^);
 @echo user_pref^("browser.theme.dark-private-windows", false^);
 @echo user_pref^("browser.topsites.contile.enabled", false^);
