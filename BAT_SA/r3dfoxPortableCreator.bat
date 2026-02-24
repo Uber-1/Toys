@@ -1,5 +1,5 @@
 @echo off
-@title r3dfox Portable Creator - ver.5.0.12 [08.12.2025]
+@title r3dfox Portable Creator - ver.5.0.13 [24.02.2026]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLCH1
@@ -73,6 +73,12 @@
 @echo defaultPref^("breakpad.reportURL", ""^);
 @echo defaultPref^("browser.aboutConfig.showWarning", false^);
 @echo defaultPref^("browser.aboutHomeSnippets.updateUrl", ""^);
+@echo defaultPref^("browser.ai.control.default", "blocked"^);
+@echo defaultPref^("browser.ai.control.linkPreviewKeyPoints", "blocked"^);
+@echo defaultPref^("browser.ai.control.pdfjsAltText", "blocked"^);
+@echo defaultPref^("browser.ai.control.sidebarChatbot", "blocked"^);
+@echo defaultPref^("browser.ai.control.smartTabGroups", "blocked"^);
+@echo defaultPref^("browser.ai.control.translations", "blocked"^);
 @echo defaultPref^("browser.bookmarks.restore_default_bookmarks", false^);
 @echo defaultPref^("browser.bookmarks.showRecentlyBookmarked", false^);
 @echo defaultPref^("browser.cache.disk.capacity", 0^);
@@ -726,6 +732,12 @@
 @echo user_pref^("breakpad.reportURL", ""^);
 @echo user_pref^("browser.aboutConfig.showWarning", false^);
 @echo user_pref^("browser.aboutHomeSnippets.updateUrl", ""^);
+@echo user_pref^("browser.ai.control.default", "blocked"^);
+@echo user_pref^("browser.ai.control.linkPreviewKeyPoints", "blocked"^);
+@echo user_pref^("browser.ai.control.pdfjsAltText", "blocked"^);
+@echo user_pref^("browser.ai.control.sidebarChatbot", "blocked"^);
+@echo user_pref^("browser.ai.control.smartTabGroups", "blocked"^);
+@echo user_pref^("browser.ai.control.translations", "blocked"^);
 @echo user_pref^("browser.bookmarks.restore_default_bookmarks", false^);
 @echo user_pref^("browser.bookmarks.showRecentlyBookmarked", false^);
 @echo user_pref^("browser.cache.disk.capacity", 0^);
