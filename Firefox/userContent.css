@@ -2,3 +2,4 @@
 @-moz-document url("about:privatebrowsing") { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
 :root {scrollbar-color: #ff9900 transparent !important; }
 @-moz-document domain("youtube.com") { [class*="player"], [id*="player"] { border-radius: 0 !important; } }
+/* @-moz-document domain("youtube.com") { * { border-radius: 0 !important; } } */
