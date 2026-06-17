@@ -1,5 +1,5 @@
 @echo off
-@title Firefox Portable Creator - ver.5.0.13 [24.02.2026]
+@title Firefox Portable Creator - ver.5.0.14 [17.06.2026]
 @cd /d "%~dp0"
 
 ::  https://ftp.mozilla.org/pub/firefox/releases/latest-esr/README.txt
@@ -249,6 +249,8 @@
 @echo defaultPref^("browser.startup.homepage", "about:newtab"^);
 @echo defaultPref^("browser.startup.homepage_override.mstone", "ignore"^);
 @echo defaultPref^("browser.startup.page", 3^);
+@echo defaultPref^("browser.startup.windowsLaunchOnLogin.defaultEnabled", false^);
+@echo defaultPref^("browser.startup.windowsLaunchOnLogin.enabled", false^);
 @echo defaultPref^("browser.suppress_first_window_animation", false^);
 @echo defaultPref^("browser.tabs.animate", false^);
 @echo defaultPref^("browser.tabs.closeWindowWithLastTab", false^);
@@ -553,6 +555,7 @@
 @echo defaultPref^("toolkit.telemetry.unified", false^);
 @echo defaultPref^("toolkit.telemetry.updatePing.enabled", false^);
 @echo defaultPref^("toolkit.telemetry.unifiedIsOptIn", false^);
+@echo defaultPref^("toolkit.winRegisterApplicationRestart", false^);
 @echo defaultPref^("toolkit.zoomManager.zoomValues", ".25,.3,.5,.67,.75,.8,.9,1,1.1,1.25,1.33,1.5,1.7,2,2.4,3,4,5"^);
 @echo defaultPref^("ui.prefersReducedMotion", 1^);
 @echo defaultPref^("xpinstall.whitelist.add", ""^);
@@ -598,6 +601,7 @@
 @echo.@-moz-document url^("about:privatebrowsing"^) { .showPrivate { display: none !important; } html.private { --in-content-page-background: menu !important; } }
 @echo.:root {scrollbar-color: #ff9900 transparent !important; }
 @echo @-moz-document domain^("youtube.com"^) { [class*="player"], [id*="player"] { border-radius: 0 !important; } }
+@echo /* @-moz-document domain^("youtube.com"^) { * { border-radius: 0 !important; } } */
 )>"FirefoxPortable\portable\chrome\userContent.css"
 
 (
@@ -673,6 +677,9 @@
 @echo.
 @echo./* 133 */
 @echo.#TabsToolbar :is^(#private-browsing-indicator-with-label,.private-browsing-indicator-with-label^) ^> label { display: none !important; }
+@echo.
+@echo./* 145 */
+@echo.* { border-radius:0px !important; }
 )>"FirefoxPortable\portable\chrome\userChrome.css"
 
 (@echo {"windows":[],"selectedWindow":0,"_closedWindows":[],"session":{},"scratchpads":[],"global":{}})>"FirefoxPortable\portable\sessionstore.js"
@@ -908,6 +915,8 @@
 @echo user_pref^("browser.startup.homepage", "about:newtab"^);
 @echo user_pref^("browser.startup.homepage_override.mstone", "ignore"^);
 @echo user_pref^("browser.startup.page", 3^);
+@echo user_pref^("browser.startup.windowsLaunchOnLogin.defaultEnabled", false^);
+@echo user_pref^("browser.startup.windowsLaunchOnLogin.enabled", false^);
 @echo user_pref^("browser.suppress_first_window_animation", false^);
 @echo user_pref^("browser.tabs.animate", false^);
 @echo user_pref^("browser.tabs.closeWindowWithLastTab", false^);
@@ -1212,6 +1221,7 @@
 @echo user_pref^("toolkit.telemetry.unified", false^);
 @echo user_pref^("toolkit.telemetry.updatePing.enabled", false^);
 @echo user_pref^("toolkit.telemetry.unifiedIsOptIn", false^);
+@echo user_pref^("toolkit.winRegisterApplicationRestart", false^);
 @echo user_pref^("toolkit.zoomManager.zoomValues", ".25,.3,.5,.67,.75,.8,.9,1,1.1,1.25,1.33,1.5,1.7,2,2.4,3,4,5"^);
 @echo user_pref^("ui.prefersReducedMotion", 1^);
 @echo user_pref^("xpinstall.whitelist.add", ""^);
@@ -1224,6 +1234,19 @@
 @echo user_pref^("widget.windows.overlay-scrollbars.enabled", true^);
 @echo //  user_pref^("widget.non-native-theme.scrollbar.style", 5^);  //  Default = 0 ; macOs = 1 ; GTK = 2 ; Android = 3 ; W10 = 4 ; W11 = 5
 )>"FirefoxPortable\portable\prefs.js"
+
+@echo %LngProcessing% "user.js"
+(
+@echo // Mozilla User Preferences
+@echo+
+@echo user_pref^("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "Arial,Consolas,Courier New,Microsoft Sans Serif,Segoe UI,Tahoma,Trebuchet MS,Verdana"^);
+@echo user_pref^("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 15^);
+@echo user_pref^("sidebar.verticalTabs", false^);
+@echo+
+@echo user_pref^("browser.startup.windowsLaunchOnLogin.defaultEnabled", false^);
+@echo user_pref^("browser.startup.windowsLaunchOnLogin.enabled", false^);
+@echo user_pref^("toolkit.winRegisterApplicationRestart", false^);
+)>"FirefoxPortable\portable\user.js"
 
 (@echo @cd core&@echo @start firefox.exe -no-remote -profile ..\portable %%*)>"FirefoxPortable\FirefoxPortable.bat"
 
