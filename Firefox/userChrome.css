@@ -73,3 +73,7 @@ menupopup > menuitem, menupopup > menu { padding-block:2px !important; }  /* Set
 
 /* 145 */
 * { border-radius:0px !important; }
+
+/* 154 */
+#TabsToolbar, #tabbrowser-tabs, .tabbrowser-tab, .tab-background { margin-top:0 !important; margin-bottom:0 !important; padding-block:0 !important; }
+#tabbrowser-tabs, .tabbrowser-tab, .tab-background { min-height:31px !important; height:31px !important; }
