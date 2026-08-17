@@ -1,5 +1,5 @@
 @echo off
-@title r3dfox Portable Creator - ver.5.0.14 [17.06.2026]
+@title r3dfox Portable Creator - ver.5.0.15 [17.08.2026]
 @cd /d "%~dp0"
 
 @if exist "curl.exe" @GOTO CURLCH1
@@ -700,6 +700,10 @@
 :: @echo.
 :: @echo./* 145 */
 :: @echo.* { border-radius:0px !important; }
+:: @echo.
+:: @echo./* 154 */
+:: @echo.#TabsToolbar, #tabbrowser-tabs, .tabbrowser-tab, .tab-background { margin-top:0 !important; margin-bottom:0 !important; padding-block:0 !important; }
+:: @echo.#tabbrowser-tabs, .tabbrowser-tab, .tab-background { min-height:31px !important; height:31px !important; }
 :: )>"r3dfoxPortable\portable\chrome\userChrome.css"
 
 (@echo {"windows":[],"selectedWindow":0,"_closedWindows":[],"session":{},"scratchpads":[],"global":{}})>"r3dfoxPortable\portable\sessionstore.js"
